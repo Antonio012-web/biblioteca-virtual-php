@@ -1,0 +1,333 @@
+/* Estilos generales */
+body { /* Configuración global del body */
+    font-family: Arial, sans-serif; /* Define la fuente principal para todo el documento */
+    background-color: #f9f9f9; /* Establece un fondo claro para la página */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    padding: 0; /* Elimina el padding predeterminado */
+}
+
+.container { /* Contenedor principal de la página */
+    width: 80%;  /* Ocupa el 80% del ancho de la ventana */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espaciado interno para separar el contenido de los bordes */
+    background-color: #fff; /* Fondo blanco para resaltar el contenido */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 30px; /* Espacio superior para separar del encabezado o tope de la página */
+    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho total */
+}
+
+/* Encabezado */
+header { /* Estilos para el encabezado del sitio */
+    text-align: center; /* Centra el contenido dentro del encabezado */
+    margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
+}
+
+header h2 { /* Título principal dentro del encabezado */
+    font-size: 2.5rem; /* Tamaño grande para destacar el título */
+    margin: 0; /* Elimina márgenes para un alineamiento preciso */
+    color: #333; /* Color de texto oscuro para buena legibilidad */
+}
+
+/* Barra superior */
+.top-bar { /* Contenedor para la barra superior que agrupa elementos */
+    display: flex; /* Usa flexbox para distribuir los elementos */
+    justify-content: space-between; /* Separa los elementos al máximo espacio disponible */
+    align-items: center; /* Centra verticalmente los elementos */
+    margin-bottom: 20px; /* Espacio inferior para separar de otras secciones */
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas si es necesario */
+}
+
+.total-registros { /* Muestra el total de registros en la parte izquierda */
+    background-color: #024894; /* Fondo azul oscuro */
+    color: white; /* Texto en blanco */
+    padding: 10px 20px; /* Espaciado interno vertical y horizontal */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor */
+    display: flex; /* Usa flexbox para alinear su contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    margin-bottom: 10px; /* Espacio inferior para separar de otros elementos */
+    width: auto; /* Ancho automático para ajustarse al contenido */
+}
+
+.total-registros i { /* Ícono dentro del total de registros */
+    margin-right: 10px; /* Espacio a la derecha para separar el ícono del texto */
+}
+
+.filtros { /* Contenedor para los filtros */
+    display: flex; /* Organiza los filtros en línea */
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-wrap: wrap; /* Permite que los filtros se distribuyan en varias líneas en dispositivos pequeños */
+    gap: 10px; /* Espacio uniforme entre cada elemento */
+}
+
+.filtros label { /* Etiqueta de los filtros */
+    margin-right: 10px; /* Espacio a la derecha para separar de otros elementos */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    color: #333; /* Color de texto oscuro */
+}
+
+.filtros label i { /* Ícono dentro de la etiqueta de filtro */
+    margin-right: 5px; /* Espacio a la derecha del ícono */
+}
+
+.filtros select { /* Campo de selección dentro de filtros */
+    padding: 5px 10px; /* Espaciado interno para mayor comodidad */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde sutil */
+}
+
+/* Barra de búsqueda */
+#searchBar { /* Campo de búsqueda */
+    display: block; /* Se muestra como bloque para centrar */
+    width: 70%; /* Ocupa el 70% del ancho disponible */
+    max-width: 100%; /* No excede el 100% del contenedor */
+    padding: 10px; /* Espaciado interno para comodidad al escribir */
+    margin: 0 auto 20px auto; /* Centrado horizontal con margen inferior */
+    border: 1px solid #ccc; /* Borde sutil alrededor del campo */
+    border-radius: 20px; /* Bordes redondeados para un aspecto suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para resaltar el campo */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+/* Acciones masivas */
+.acciones-masivas { /* Contenedor para botones de acciones masivas */
+    text-align: right; /* Alinea los botones a la derecha */
+    margin-bottom: 10px; /* Espacio inferior para separar del siguiente bloque */
+}
+
+.acciones-masivas .btn-masiva { /* Botones específicos para acciones masivas */
+    padding: 5px 10px; /* Espaciado interno para los botones */
+    border: none; /* Sin borde para un diseño limpio */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Indica que el botón es interactivo */
+    margin-left: 5px; /* Espacio a la izquierda entre botones */
+    font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido */
+    transition: background-color 0.3s; /* Transición para cambios en el color de fondo */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para cambios en fondo y transformación */
+}
+
+.btn-masiva.eliminar-masivo { /* Botón para eliminar registros masivamente */
+    background-color: #c22535; /* Fondo rojo */
+    color: #fff; /* Texto en blanco */
+}
+
+.btn-masiva.down-lectura { /* Botón para la acción "down-lectura" */
+    background-color: #024894; /* Fondo azul oscuro */
+    color: #fff; /* Texto en blanco */
+}
+
+.btn-masiva.print-lectura { /* Botón para la acción "print-lectura" */
+    background-color: #024894; /* Fondo azul oscuro */
+    color: #fff; /* Texto en blanco */
+}
+
+.btn-masiva:hover { /* Efecto hover para los botones de acciones masivas */
+    opacity: 0.9; /* Ligeramente transparente al pasar el cursor */
+}
+
+.btn-masiva.eliminar-masivo:hover { /* Hover para el botón de eliminar masivo */
+    background-color: #b30000; /* Fondo rojo más oscuro al hacer hover */
+}
+.btn-masiva.down-lectura:hover { /* Hover para el botón "down-lectura" */
+    background-color: #0056b3; /* Fondo azul más claro al hacer hover */
+}
+.btn-masiva.print-lectura:hover { /* Hover para el botón "print-lectura" */
+    background-color: #0056b3; /* Fondo azul más claro al hacer hover */
+}
+
+/* Tabla principal */
+.reservas-table { /* Tabla para mostrar contactos o reservas */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    border-collapse: collapse; /* Elimina espacios entre celdas */
+    margin: 10px 0; /* Espaciado vertical alrededor de la tabla */
+    table-layout: fixed; /* Ancho fijo para las columnas de la tabla */
+}
+
+.reservas-table th, .reservas-table td { /* Celdas de la tabla (encabezados y datos) */
+    border: 1px solid #ddd; /* Borde sutil en cada celda */
+    padding: 10px; /* Espaciado interno para legibilidad */
+    text-align: left; /* Alinea el texto a la izquierda */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el contenido que exceda el ancho de la celda */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos si el texto se corta */
+}
+
+.reservas-table th { /* Encabezados de la tabla */
+    background-color: #f8f8f8; /* Fondo claro para diferenciar el encabezado */
+    font-weight: bold; /* Texto en negrita para resaltar */
+    text-align: center; /* Centra el texto del encabezado */
+}
+
+.reservas-table td { /* Celdas de datos de la tabla */
+    background-color: #fff; /* Fondo blanco para los datos */
+    text-align: center; /* Centra el contenido */
+}
+
+.reservas-table tr:hover { /* Efecto hover en filas de la tabla */
+    background-color: #f1f1f1; /* Cambia el fondo de la fila al pasar el cursor */
+}
+
+/* Botones de acciones */
+.reservas-table .btn { /* Botones que aparecen dentro de la tabla */
+    padding: 5px 10px; /* Espaciado interno para los botones */
+    border: none; /* Sin borde para un aspecto limpio */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor pointer para indicar interactividad */
+    margin: 0px; /* Sin margen externo */
+    font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para cambios en fondo y escala */
+}
+
+/* Nuevo botón "Ver" */
+.reservas-table .btn.ver { /* Botón para la acción "ver" dentro de la tabla */
+    background-color: #3D3BF3; /* Fondo azul vibrante */
+    color: #fff; /* Texto en blanco */
+}
+.reservas-table .btn.ver:hover { /* Efecto hover para el botón "ver" */
+    background-color: #22177A; /* Fondo azul más oscuro al pasar el cursor */
+}
+
+/* Contenedor para los botones de acciones en columna */
+.acciones-container { /* Contenedor para agrupar botones de acciones en columna */
+    display: flex; /* Usa flexbox para organizar los botones */
+    flex-direction: column; /* Organiza los botones en columna */
+    gap: 5px; /* Espacio entre botones */
+}
+.acciones-container .btn { /* Botones dentro del contenedor de acciones */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+/* Paginación estilo “1 2 3 4 5 … 20” */
+.pagination { /* Contenedor para los controles de paginación */
+    display: flex; /* Organiza los elementos con flexbox */
+    justify-content: center; /* Centra los controles horizontalmente */
+    margin-top: 20px; /* Espacio superior para separar la paginación de la tabla */
+}
+
+.pagination-list { /* Lista no ordenada para la paginación con estilo de círculos */
+    display: flex; /* Organiza los elementos en línea */
+    gap: 3px; /* Espacio pequeño entre cada círculo */
+    list-style: none; /* Elimina viñetas predeterminadas */
+    margin: 0; /* Sin margen externo */
+    padding: 0; /* Sin padding interno */
+}
+.pagination-list li { /* Cada ítem de la lista de paginación */
+    list-style: none; /* Sin viñetas predeterminadas */
+}
+.pagination-list li a { /* Enlaces de la paginación */
+    display: inline-block; /* Permite definir dimensiones fijas */
+    min-width: 35px; /* Ancho mínimo para cada círculo */
+    height: 35px; /* Alto fijo para cada círculo */
+    line-height: 35px; /* Centra verticalmente el número */
+    text-align: center; /* Centra horizontalmente el texto */
+    border-radius: 50%; /* Forma circular */
+    background-color: #ccc; /* Fondo gris por defecto */
+    color: #333; /* Texto en color oscuro */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para fondo y texto */
+}
+.pagination-list li a:hover { /* Efecto hover para enlaces de la paginación */
+    background-color: #024894; /* Fondo azul oscuro al pasar el cursor */
+    color: #fff; /* Texto en blanco */
+}
+.pagination-list li a.active { /* Enlace activo en la paginación */
+    background-color: #017bff; /* Fondo azul para el estado activo */
+    color: #fff; /* Texto en blanco */
+}
+.pagination-list li a.disabled { /* Enlaces deshabilitados en la paginación */
+    opacity: 0.5; /* Apariencia atenuada */
+    cursor: not-allowed; /* Cursor que indica que no se puede interactuar */
+}
+
+/* Pie de página */
+footer { /* Sección de pie de página */
+    text-align: center; /* Centra el contenido */
+    padding: 10px 0; /* Espaciado vertical */
+    margin-top: 20px; /* Espacio superior para separar del contenido anterior */
+    border-top: 1px solid #ddd; /* Línea superior sutil para separar el pie */
+    color: #777; /* Color de texto gris */
+    font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido */
+}
+
+/* Responsivo */
+@media (max-width: 768px) { /* Diseño responsivo para pantallas pequeñas */
+    .container { /* Ajustes en el contenedor principal */
+        width: 100%; /* Ocupa el 100% del ancho disponible */
+        margin-top: 10px; /* Reduce el margen superior */
+        padding: 10px; /* Reduce el padding interno */
+    }
+    .top-bar { /* Ajusta la barra superior en móviles */
+        flex-direction: column; /* Organiza los elementos en columna */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+    .total-registros { /* Ajusta la sección de total de registros en móviles */
+        margin-bottom: 10px; /* Mantiene el margen inferior */
+        width: auto; /* Ancho automático */
+        text-align: left; /* Alinea el contenido a la izquierda */
+    }
+    .acciones-masivas { /* Ajusta las acciones masivas en móviles */
+        text-align: left; /* Alinea el contenido a la izquierda */
+        flex-direction: column; /* Organiza los botones en columna */
+        align-items: flex-start; /* Alinea los botones a la izquierda */
+    }
+    .reservas-table { /* Ajustes para la tabla en dispositivos pequeños */
+        border: 0; /* Elimina el borde general */
+    }
+    .reservas-table thead { /* Oculta el encabezado de la tabla en móviles */
+        display: none;
+    }
+    .reservas-table tr { /* Cada fila de la tabla en móviles */
+        display: block; /* Se muestra como bloque para adaptarse a la pantalla */
+        margin-bottom: 15px; /* Espacio entre filas */
+        border: 1px solid #ddd; /* Borde sutil para separar filas */
+        border-radius: 10px; /* Bordes redondeados */
+        padding: 10px; /* Padding interno */
+        background-color: #fff; /* Fondo blanco para cada fila */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+    .reservas-table td { /* Celdas de la tabla en móviles */
+        display: block; /* Se muestra como bloque para adaptarse */
+        padding: 8px 0; /* Espaciado vertical interno */
+        border: none; /* Elimina el borde para un aspecto más limpio */
+        text-align: left; /* Alinea el texto a la izquierda */
+        white-space: normal; /* Permite que el texto se divida en varias líneas */
+    }
+    .reservas-table td::before { /* Etiqueta previa en celdas para indicar el encabezado */
+        content: attr(data-label); /* Inserta el valor del atributo data-label */
+        font-weight: bold; /* Texto en negrita para resaltar la etiqueta */
+        margin-right: 10px; /* Espacio a la derecha de la etiqueta */
+        display: inline-block; /* Se muestra en línea para alinearse con el contenido */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+    .reservas-table td:last-child { /* Última celda de la fila en la tabla */
+        padding-bottom: 0; /* Elimina el padding inferior */
+    }
+    .pagination { /* Ajusta la paginación en móviles */
+        flex-direction: row; /* Organiza los elementos en fila */
+        justify-content: center; /* Centra los elementos */
+    }
+    .pagination-list { /* Ajusta el espacio entre elementos de paginación */
+        gap: 5px; /* Aumenta ligeramente el espacio entre círculos */
+    }
+    #searchBar { /* Ajusta el campo de búsqueda en móviles */
+        max-width: 100%; /* Asegura que el campo ocupe todo el ancho posible */
+        margin-bottom: 15px; /* Espacio inferior para separar del siguiente bloque */
+    }
+    .reservas-table tr:hover { /* En móviles, al pasar el cursor por una fila */
+        background-color: #fff; /* Mantiene el fondo blanco */
+    }
+}
+
+/* Efecto Pulse */
+.grow { /* Elemento al que se aplicará el efecto de crecimiento */
+    display: inline-block; /* Permite que se escale sin alterar el flujo de texto */
+    transition: transform 0.3s ease-in-out;  /* Transición suave para el efecto */
+}
+.grow:hover { /* Al pasar el cursor sobre el elemento */
+    transform: scale(1.1); /* Aumenta su tamaño al 110% */
+}

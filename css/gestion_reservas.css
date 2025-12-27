@@ -1,0 +1,406 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif; /* Fuente base para todo el documento */
+    background-color: #f9f9f9; /* Fondo claro para la página */
+    margin: 0; /* Elimina márgenes predeterminados */
+    padding: 0; /* Elimina padding predeterminado */
+}
+
+.container {
+    width: 80%; /* El contenedor ocupa el 80% del ancho */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px; /* Espacio interno para el contenido */
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 30px; /* Separación superior */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    overflow: hidden; /* Oculta contenido que se desborde */
+}
+
+/* Ajuste para el header con ícono */
+.header-info {
+    position: relative; /* Permite posicionar el ícono de forma absoluta */
+    text-align: center; /* Centra el contenido */
+    padding: 10px 0; /* Espaciado vertical */
+}
+.header-info h2 {
+    margin: 0; /* Elimina márgenes para un ajuste preciso */
+}
+.info-icon {
+    position: absolute; /* Posición absoluta respecto a .header-info */
+    right: 10px; /* Ubicado a 10px del lado derecho */
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%); /* Ajuste para centrar exactamente */
+    font-size: 1.8rem; /* Tamaño del ícono */
+    color: #024894; /* Color del ícono */
+    cursor: pointer; /* Indica que es interactivo */
+    transition: transform 0.3s ease-in-out; /* Transición para el efecto hover */
+}
+.info-icon:hover {
+    transform: translateY(-50%) scale(1.1); /* Aumenta el ícono al pasar el mouse */
+}
+
+/* Encabezado */
+header {
+    text-align: center; /* Centra el contenido del header */
+    margin-bottom: 20px; /* Separación inferior */
+}
+
+header h2 {
+    font-size: 2.5rem; /* Tamaño destacado para el título */
+    margin: 0; /* Sin márgenes */
+    color: #333; /* Color de texto oscuro */
+}
+
+/* Barra superior */
+.top-bar {
+    display: flex; /* Uso de Flexbox para distribuir elementos */
+    justify-content: space-between; /* Elementos en extremos */
+    align-items: center; /* Centrado vertical */
+    margin-bottom: 20px; /* Espacio inferior */
+    flex-wrap: wrap; /* Permite envolver elementos si es necesario */
+}
+
+.total-registros {
+    background-color: #024894; /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor */
+    display: flex; /* Alinea contenido internamente */
+    align-items: center; /* Centrado vertical */
+    box-sizing: border-box; /* Calcula ancho incluyendo padding */
+    width: auto; /* Ancho ajustado al contenido */
+    max-width: 100%; /* No excede el contenedor padre */
+}
+
+.total-registros i {
+    margin-right: 10px; /* Espacio entre ícono y texto */
+}
+
+.filtros {
+    display: flex; /* Organiza filtros en línea */
+    align-items: center; /* Centrado vertical */
+    flex-wrap: wrap; /* Permite ajuste en varias líneas */
+    gap: 10px; /* Espacio uniforme entre elementos */
+}
+
+.filtros label {
+    margin-right: 10px; /* Separación a la derecha */
+    font-size: 1rem; /* Fuente estándar */
+    color: #333; /* Texto oscuro */
+}
+
+.filtros select {
+    padding: 5px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris claro */
+}
+
+/* Barra de búsqueda */
+#searchBar {
+    display: block; /* Se muestra como bloque */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 500px; /* Ancho máximo para buena legibilidad */
+    padding: 10px; /* Espaciado interno */
+    margin: 0 auto 20px auto; /* Centrado horizontal y margen inferior */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 20px; /* Bordes muy redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-size: 1rem; /* Tamaño de fuente normal */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+/* Acciones masivas */
+.acciones-masivas {
+    text-align: right; /* Alinea a la derecha */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+.acciones-masivas .btn-masiva,
+.export-btn,
+.print-btn {
+    padding: 5px 10px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor pointer */
+    margin-left: 5px; /* Separación a la izquierda */
+    font-size: 0.9rem; /* Fuente ligeramente reducida */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones para hover */
+}
+
+.btn-masiva.estado-confirmada {
+    background-color: #15742b; /* Fondo verde para estado confirmado */
+    color: #fff; /* Texto blanco */
+}
+.btn-masiva.estado-pendiente {
+    background-color: #ffc107; /* Fondo amarillo para pendiente */
+    color: #000000; /* Texto negro */
+}
+.btn-masiva.estado-cancelada {
+    background-color: #8a1f6a; /* Fondo púrpura para cancelada */
+    color: #fff; /* Texto blanco */
+}
+.btn-masiva.eliminar-masivo {
+    background-color: #c22535; /* Fondo rojo para eliminación masiva */
+    color: #fff; /* Texto blanco */
+}
+
+.export-btn {
+    background-color: #024894; /* Fondo azul para exportar */
+    color: #fff; /* Texto blanco */
+}
+.print-btn {
+    background-color: #024894; /* Fondo azul para imprimir */
+    color: #fff; /* Texto blanco */
+}
+
+.btn-masiva.eliminar-masivo:hover {
+    background-color: #b30000; /* Oscurece el rojo al pasar el mouse */
+}
+.export-btn:hover {
+    background-color: #0056b3; /* Oscurece el azul al pasar el mouse */
+}
+.print-btn:hover {
+    background-color: #0056b3; /* Oscurece el azul al pasar el mouse */
+}
+
+/* Tabla */
+.reservas-table {
+    width: 100%; /* La tabla ocupa el 100% del contenedor */
+    border-collapse: collapse; /* Elimina espacios entre celdas */
+    margin: 20px 0; /* Margen vertical */
+}
+
+.reservas-table th,
+.reservas-table td {
+    border: 1px solid #ddd; /* Borde gris claro para celdas */
+    padding: 10px; /* Espaciado interno en celdas */
+    text-align: left; /* Alineación predeterminada a la izquierda */
+}
+
+.reservas-table th {
+    background-color: #f8f8f8; /* Fondo claro para encabezados */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centrado en encabezados */
+}
+
+.reservas-table td {
+    background-color: #fff; /* Fondo blanco para celdas */
+    text-align: center; /* Centrado en celdas */
+}
+
+.reservas-table tr:hover {
+    background-color: #f1f1f1; /* Cambio de fondo al pasar el mouse */
+}
+
+.truncate-text {
+    max-width: 150px; /* Limita el ancho para contenido largo */
+    white-space: nowrap; /* No permite saltos de línea */
+    overflow: hidden; /* Oculta el contenido desbordante */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos si es necesario */
+}
+
+/* Botones de acciones en la tabla */
+.reservas-table .btn {
+    padding: 5px 10px; /* Espaciado interno para botones */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor pointer */
+    margin: 0px; /* Sin margen */
+    font-size: 0.9rem; /* Tamaño de fuente adecuado */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones para efectos hover */
+}
+
+/* Estados de elementos */
+.estado-pendiente {
+    background-color: #ffc107; /* Fondo amarillo para pendiente */
+    color: #000000; /* Texto negro */
+}
+.estado-confirmada {
+    background-color: #15742b; /* Fondo verde para confirmado */
+    color: #fff; /* Texto blanco */
+}
+.estado-cancelada {
+    background-color: #912e73; /* Fondo púrpura para cancelado */
+    color: #fff; /* Texto blanco */
+}
+.eliminar {
+    background-color: #c22535; /* Fondo rojo para eliminar */
+    color: #fff; /* Texto blanco */
+}
+.estado-pendiente:hover {
+    background-color: #e0a800; /* Hover: amarillo más oscuro */
+}
+.estado-confirmada:hover {
+    background-color: #155723; /* Hover: verde más oscuro */
+}
+.estado-cancelada:hover {
+    background-color: #6e1262; /* Hover: púrpura más oscuro */
+}
+.eliminar:hover {
+    background-color: #b30000; /* Hover: rojo más oscuro */
+}
+
+/* Botón "Ver" en la tabla */
+.reservas-table .btn.ver {
+    background-color: #3D3BF3; /* Fondo azul para botón ver */
+    color: #fff; /* Texto blanco */
+}
+.reservas-table .btn.ver:hover {
+    background-color: #22177A; /* Hover: azul más oscuro */
+}
+
+/* Contenedor para las acciones en columna */
+.acciones-columna {
+    display: flex; /* Uso de Flexbox */
+    flex-direction: column; /* Organiza elementos en columna */
+    align-items: center; /* Centrado horizontal */
+    gap: 5px; /* Espacio entre elementos */
+}
+
+/* Paginación estilo “1 2 3 4 5 … 20” */
+.pagination {
+    display: flex; /* Organiza la paginación en línea */
+    justify-content: center; /* Centrado horizontal */
+    margin-top: 20px; /* Espacio superior */
+}
+
+.pagination-list {
+    display: flex; /* Lista en línea */
+    gap: 8px; /* Espacio entre elementos */
+    list-style: none; /* Sin viñetas */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin padding */
+}
+.pagination-list li {
+    list-style: none; /* Sin viñetas */
+}
+.pagination-list li a {
+    display: inline-block; /* Permite dimensiones fijas */
+    min-width: 36px; /* Ancho mínimo */
+    height: 36px; /* Altura fija */
+    line-height: 36px; /* Centrado vertical del texto */
+    text-align: center; /* Centrado horizontal */
+    border-radius: 50%; /* Forma circular */
+    background-color: #ccc; /* Fondo gris claro */
+    color: #333; /* Texto oscuro */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s, color 0.3s; /* Transición para hover */
+}
+.pagination-list li a:hover {
+    background-color: #024894; /* Hover: fondo azul */
+    color: #fff; /* Texto blanco en hover */
+}
+.pagination-list li a.active {
+    background-color: #017bff; /* Activo: azul intenso */
+    color: #fff; /* Texto blanco en activo */
+}
+.pagination-list li a.disabled {
+    opacity: 0.5; /* Baja opacidad para deshabilitado */
+    cursor: not-allowed; /* Cursor no permitido */
+}
+
+/* Pie de página */
+footer {
+    text-align: center; /* Texto centrado */
+    padding: 10px 0; /* Espaciado vertical */
+    margin-top: 20px; /* Separación superior */
+    border-top: 1px solid #ddd; /* Línea superior sutil */
+    color: #777; /* Texto gris */
+    font-size: 0.9rem; /* Tamaño de fuente reducido */
+}
+
+/* Reorganización de acciones masivas en móviles */
+@media (max-width: 768px) {
+    .acciones-masivas {
+        display: flex; /* Organiza en línea */
+        flex-wrap: wrap; /* Permite ajuste en varias líneas */
+        justify-content: center; /* Centrado horizontal */
+        gap: 10px; /* Espacio entre botones */
+        margin-bottom: 10px; /* Espacio inferior */
+    }
+    .acciones-masivas button {
+        flex: 1 1 auto; /* Botones flexibles */
+        min-width: 120px; /* Ancho mínimo */
+    }
+}
+
+/* Adaptaciones en móviles */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Contenedor ocupa casi todo el ancho */
+        margin-top: 10px; /* Menor margen superior */
+        padding: 10px; /* Menor padding */
+    }
+    .top-bar {
+        flex-direction: column; /* Organiza en columna */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+    .total-registros {
+        width: auto; /* Ancho automático */
+        margin-bottom: 10px; /* Menor margen inferior */
+        text-align: left; /* Texto alineado a la izquierda */
+    }
+    #searchBar {
+        max-width: 100%; /* Campo de búsqueda ocupa todo el ancho */
+        margin-bottom: 10px; /* Espacio inferior */
+    }
+    .reservas-table {
+        border: 0; /* Elimina bordes para simplificar */
+    }
+    .reservas-table thead {
+        display: none; /* Oculta encabezados en móvil */
+    }
+    .reservas-table tr {
+        display: block; /* Cada fila se muestra como bloque */
+        margin-bottom: 15px; /* Espacio entre filas */
+        border: 1px solid #ddd; /* Borde sutil */
+        border-radius: 10px; /* Bordes redondeados */
+        padding: 10px; /* Espaciado interno */
+        background-color: #fff; /* Fondo blanco */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        text-align: left; /* Texto alineado a la izquierda */
+    }
+    .reservas-table td {
+        display: block; /* Cada celda se muestra como bloque */
+        padding: 8px 0; /* Espaciado vertical */
+        border: none; /* Sin borde */
+        text-align: left; /* Texto alineado a la izquierda */
+        white-space: normal; /* Permite saltos de línea */
+    }
+    .reservas-table td::before {
+        content: attr(data-label); /* Inserta etiqueta descriptiva */
+        font-weight: bold; /* Texto en negrita para la etiqueta */
+        margin-right: 10px; /* Espacio a la derecha */
+        flex-shrink: 0; /* No se reduce en ancho */
+        text-align: left; /* Alineación a la izquierda */
+    }
+    .reservas-table td:last-child {
+        padding-bottom: 0; /* Sin padding inferior en la última celda */
+    }
+    .reservas-table .btn {
+        display: inline-flex; /* Botón se muestra como inline-flex */
+        width: auto; /* Ancho ajustable al contenido */
+        text-align: center; /* Texto centrado */
+        margin: 5px 2px; /* Margen para separar botones */
+    }
+    .reservas-table tr:hover {
+        background-color: #fff; /* Sin cambio de fondo al hover en móvil */
+    }
+}
+
+/* Efecto Pulse para animación */
+.grow {
+    display: inline-block; /* Permite transformación sin romper el flujo */
+    transition: transform 0.3s ease-in-out; /* Transición suave para transformación */
+}
+.grow:hover {
+    transform: scale(1.1); /* Escala el elemento al pasar el mouse */
+}
+
+/* Centrar título en el modal de SweetAlert2 */
+.swal2-title-center {
+    text-align: center; /* Centra el título en SweetAlert2 */
+}

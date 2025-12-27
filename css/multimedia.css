@@ -1,0 +1,546 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif; /* Define la fuente principal para el documento */
+    background-color: #f9f9f9; /* Establece un fondo muy claro */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+}
+
+.container {
+    width: 80%; /* Define el ancho del contenedor al 80% de la ventana */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Aplica espacio interno */
+    background-color: #fff; /* Fondo blanco para el contenedor */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 30px; /* Separa el contenedor del elemento superior */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+/* Encabezado */
+header {
+    text-align: center; /* Centra el contenido del encabezado */
+    margin-bottom: 20px; /* Espacio inferior para separar secciones */
+}
+
+header h2 {
+    font-size: 2.5rem; /* Tamaño grande para el título */
+    margin: 0; /* Elimina márgenes alrededor del título */
+    color: #333; /* Color oscuro para el texto */
+}
+
+/* Barra superior */
+.top-bar {
+    display: flex; /* Utiliza flexbox para distribuir los elementos */
+    justify-content: space-between; /* Separa los elementos al máximo */
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-bottom: 20px; /* Espacio inferior para separación */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a varias líneas */
+}
+
+.total-registros {
+    background-color: #024894; /* Fondo azul oscuro para el contador */
+    color: white; /* Texto blanco para contraste */
+    padding: 10px 20px; /* Espaciado interno para comodidad */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 1.1rem; /* Tamaño de fuente ligeramente aumentado */
+    display: flex; /* Usa flexbox para alinear icono y texto */
+    align-items: center; /* Centra verticalmente el contenido */
+    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
+    width: auto; /* Ancho automático según el contenido */
+    max-width: 100%; /* Limita el ancho máximo al 100% */
+}
+
+.total-registros i {
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+.filtros {
+    display: flex; /* Organiza los filtros en línea */
+    align-items: center; /* Alinea verticalmente los filtros */
+    flex-wrap: wrap; /* Permite que se ajusten en varias líneas */
+    gap: 10px; /* Espacio uniforme entre filtros */
+}
+
+.filtros label {
+    margin-right: 10px; /* Separa la etiqueta del siguiente elemento */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    color: #333; /* Color oscuro para el texto */
+}
+
+.filtros select {
+    padding: 5px 10px; /* Espaciado interno en el select */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris claro */
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex; /* Organiza la barra en flexbox */
+    justify-content: center; /* Centra la barra horizontalmente */
+    margin-bottom: 20px; /* Separa la barra de búsqueda de otros elementos */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+#searchBar {
+    display: block; /* Se muestra como bloque */
+    width: 100%; /* Ocupa el ancho completo del contenedor */
+    max-width: 500px; /* Limita el ancho máximo a 500px */
+    padding: 10px; /* Espaciado interno para el campo de búsqueda */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 20px; /* Bordes redondeados para un estilo moderno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para resaltar el campo */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+/* Acciones de la tabla */
+.table-actions {
+    display: flex; /* Organiza las acciones en línea */
+    justify-content: flex-end; /* Alinea las acciones a la derecha */
+    margin-bottom: 10px; /* Separa las acciones de la tabla */
+    flex-wrap: wrap; /* Permite que se ajusten en varias líneas */
+    gap: 15px; /* Espacio entre cada acción */
+}
+
+.table-actions .btn {
+    background-color: #024894; /* Fondo azul oscuro para el botón */
+    color: white; /* Texto blanco */
+    padding: 10px 15px; /* Espaciado interno para mayor clicabilidad */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor para indicar interactividad */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+.table-actions .btn-delete-massive {
+    background-color: #c22535; /* Fondo rojo para eliminación masiva */
+}
+
+.table-actions .btn:hover {
+    background-color: #0056b3; /* Cambia a un azul más oscuro al pasar el cursor */
+}
+
+.table-actions .btn-delete-massive:hover {
+    background-color: #b30000; /* Cambia a un rojo más oscuro al pasar el cursor */
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    width: 100%; /* Ocupa el ancho completo del contenedor */
+    overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+}
+
+.table-container table {
+    width: 100%; /* La tabla ocupa todo el ancho del contenedor */
+    border-collapse: collapse; /* Elimina el espacio entre celdas */
+    margin: 20px 0; /* Margen vertical alrededor de la tabla */
+    table-layout: fixed; /* Distribución fija de columnas */
+}
+
+#modalTitle{
+    text-align: center; /* Centra el título dentro del modal */
+}
+
+/* Tabla de reservas en pantallas grandes */
+@media (min-width: 1025px) {
+    .reservas-table th, .reservas-table td {
+        border: 1px solid #ddd; /* Bordes suaves para celdas */
+        padding: 8px; /* Espacio interno en celdas */
+        text-align: center; /* Centra el contenido */
+        white-space: nowrap; /* Evita el salto de línea en el contenido */
+        overflow: hidden; /* Oculta contenido que desborde */
+        text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es muy largo */
+        font-size: 0.9rem; /* Tamaño de fuente ligeramente menor */
+    }
+
+    .reservas-table th {
+        background-color: #f8f8f8; /* Fondo claro para encabezados */
+        font-weight: bold; /* Texto en negrita para resaltar encabezados */
+        text-align: center; /* Centra el texto en los encabezados */
+    }
+
+    .reservas-table td {
+        background-color: #fff; /* Fondo blanco para celdas */
+        text-align: center; /* Centra el contenido */
+    }
+
+    .reservas-table tr:hover {
+        background-color: #f1f1f1; /* Resalta la fila al pasar el cursor */
+    }
+}
+
+/* Estilo de botones */
+.reservas-table .btn {
+    padding: 5px 10px; /* Espaciado interno para mayor comodidad */
+    border: none; /* Elimina borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero para indicar clicabilidad */
+    margin: 5px; /* Margen entre botones */
+    font-size: 0.8rem; /* Tamaño de fuente pequeño */
+    transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+    display: flex; /* Usa flexbox para alinear contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    min-width: 90px; /* Ancho mínimo para uniformidad */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones para fondo y escala */
+}
+
+.btn-edit {
+    background-color: #ffca2c; /* Fondo amarillo para edición */
+    color: #000000; /* Texto negro */
+}
+
+.btn-delete {
+    background-color: #c22535; /* Fondo rojo para eliminación */
+    color: #fff; /* Texto blanco */
+}
+
+.btn-edit:hover {
+    background-color: #e6b022; /* Fondo amarillo oscuro al pasar el cursor */
+}
+
+.btn-delete:hover {
+    background-color: #b30000; /* Fondo rojo oscuro al pasar el cursor */
+}
+
+/* Iconos dentro de los botones */
+.btn i {
+    margin-right: 5px; /* Separa el icono del texto */
+}
+
+/* Paginación */
+.pagination {
+    display: flex; /* Organiza los elementos de paginación en línea */
+    justify-content: center; /* Centra la paginación horizontalmente */
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-top: 20px; /* Separa la paginación de la tabla */
+    gap: 8px; /* Espacio horizontal entre elementos */
+}
+
+.pagination li {
+    list-style: none; /* Elimina el estilo de lista por defecto */
+}
+
+.pagination li a {
+    display: inline-block; /* Muestra el enlace como bloque en línea */
+    min-width: 36px; /* Ancho mínimo para el enlace */
+    height: 36px; /* Altura fija para mantener proporción */
+    line-height: 36px; /* Centra verticalmente el texto */
+    text-align: center; /* Centra el texto horizontalmente */
+    border-radius: 50%; /* Forma circular para el enlace */
+    background-color: #ccc; /* Fondo gris claro */
+    color: #333; /* Texto oscuro */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para fondo y color */
+}
+
+.pagination li a:hover {
+    background-color: #024894; /* Fondo azul oscuro al pasar el cursor */
+    color: #fff; /* Texto blanco al pasar el cursor */
+}
+
+.pagination li a.active {
+    background-color: #017bff; /* Fondo azul para la página activa */
+    color: #fff; /* Texto blanco para la página activa */
+}
+
+.pagination li a.disabled {
+    opacity: 0.5; /* Reduce opacidad para elementos deshabilitados */
+    cursor: not-allowed; /* Cursor no permitido en elementos deshabilitados */
+}
+
+/* Pie de página */
+footer {
+    text-align: center; /* Centra el contenido del pie de página */
+    padding: 10px 0; /* Espaciado vertical */
+    margin-top: 20px; /* Separa el pie del contenido superior */
+    border-top: 1px solid #ddd; /* Línea superior para delimitar el pie */
+    color: #777; /* Color gris para el texto */
+    font-size: 0.9rem; /* Tamaño de fuente pequeño */
+}
+
+/* Modal */
+.modal {
+    display: flex; /* Muestra el modal utilizando flexbox */
+    position: fixed; /* Fija el modal en la pantalla */
+    z-index: 1; /* Asegura que el modal se superponga a otros elementos */
+    left: 0; /* Posición desde el borde izquierdo */
+    top: 0; /* Posición desde el borde superior */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    overflow: auto; /* Permite desplazamiento si el contenido es extenso */
+    background-color: rgba(0,0,0,0.4); /* Fondo semitransparente para overlay */
+    justify-content: center; /* Centra horizontalmente el modal */
+    align-items: center; /* Centra verticalmente el modal */
+}
+
+.modal-content {
+    background-color: #fefefe; /* Fondo claro para el contenido del modal */
+    margin: auto; /* Centra el contenido dentro del modal */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #888; /* Borde gris para delimitar el modal */
+    width: 80%; /* Ancho relativo al contenedor */
+    max-width: 500px; /* Ancho máximo de 500px */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
+    position: relative; /* Posición relativa para ubicar elementos internos */
+}
+
+.close {
+    color: #aaa; /* Color gris para el botón de cerrar */
+    position: absolute; /* Posiciona el botón de cerrar dentro del modal */
+    right: 20px; /* Distancia desde el borde derecho */
+    top: 20px; /* Distancia desde el borde superior */
+    font-size: 28px; /* Tamaño grande para visibilidad */
+    font-weight: bold; /* Negrita para destacar el botón */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Cambia a negro al pasar el cursor o enfocar */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Indica interactividad */
+}
+
+form .form-group {
+    margin-bottom: 15px; /* Espacio inferior entre grupos del formulario */
+}
+
+form .form-group label {
+    display: block; /* Muestra la etiqueta en bloque */
+    margin-bottom: 5px; /* Separa la etiqueta de su campo */
+}
+
+form .form-group input,
+form .form-group select,
+form .form-group textarea {
+    width: 100%; /* Los campos ocupan el ancho completo */
+    padding: 10px; /* Espaciado interno para comodidad */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+form button {
+    background-color: #007bff; /* Fondo azul para el botón del formulario */
+    color: white; /* Texto blanco */
+    padding: 10px 15px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    margin-top: 10px; /* Separa el botón del formulario */
+    width: 100%; /* Ocupa todo el ancho del formulario */
+}
+
+.modal-content form button {
+    display: block; /* Muestra el botón como bloque */
+    margin: 10px auto 0 auto; /* Centra horizontalmente */
+    width: auto; /* Ajusta el ancho al contenido */
+    min-width: 100px; /* Establece un ancho mínimo */
+    padding: 10px 12px; /* Espaciado reducido */
+    font-size: 0.9rem; /* Tamaño de fuente pequeño */
+    background-color: #007bff; /* Fondo azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+form button:hover {
+    background-color: #0056b3; /* Fondo azul oscuro al pasar el cursor */
+}
+
+.reservas-table th:last-child,
+.reservas-table td:last-child {
+    width: 100px; /* Ancho fijo para la última columna */
+    overflow: visible; /* Permite mostrar el contenido completo */
+    white-space: nowrap; /* Evita que el contenido se divida en varias líneas */
+}
+
+/* Estilo tipo "card" para registros en móviles y tabletas */
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 1024px) {
+    .container {
+        width: 95%; /* Aumenta el ancho en dispositivos pequeños */
+        margin-top: 10px; /* Reduce el margen superior */
+        padding: 10px; /* Reduce el padding interno */
+    }
+
+    .top-bar {
+        flex-direction: column; /* Organiza elementos en columna */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .total-registros {
+        width: auto; /* Ancho automático en móviles */
+        margin-bottom: 10px; /* Espacio inferior para separación */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    .search-bar {
+        flex-direction: column; /* Organiza la búsqueda en columna */
+        width: 100%; /* Ocupa todo el ancho */
+    }
+
+    #searchBar {
+        max-width: 100%; /* Permite que el campo se expanda en móviles */
+        margin-bottom: 10px; /* Separa el campo de otros elementos */
+    }
+
+    .table-actions {
+        flex-direction: column; /* Organiza las acciones en columna */
+        align-items: flex-start; /* Alinea a la izquierda */
+        gap: 5px; /* Reduce el espacio entre acciones */
+    }
+
+    .reservas-table {
+        border: 0; /* Elimina bordes en la tabla */
+    }
+
+    .reservas-table thead {
+        display: none; /* Oculta la cabecera en móviles */
+    }
+
+    .reservas-table tr {
+        display: block; /* Muestra cada fila como bloque */
+        margin-bottom: 15px; /* Espacio entre filas */
+        border: 1px solid #ddd; /* Borde para delimitar filas */
+        border-radius: 10px; /* Bordes redondeados en filas */
+        padding: 10px; /* Espaciado interno en filas */
+        background-color: #fff; /* Fondo blanco para filas */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para resaltar filas */
+        text-align: left; /* Alinea el contenido a la izquierda */
+    }
+
+    .reservas-table td {
+        display: block; /* Cada celda se muestra en bloque */
+        padding: 8px 0; /* Espaciado vertical interno */
+        border: none; /* Sin borde en celdas */
+        text-align: left !important; /* Forzar alineación a la izquierda */
+        white-space: normal; /* Permite el salto de línea */
+    }
+
+    .reservas-table td::before {
+        content: attr(data-label); /* Muestra la etiqueta definida en el atributo data-label */
+        font-weight: bold; /* Destaca la etiqueta en negrita */
+        display: inline-block; /* Muestra la etiqueta en línea */
+        width: 40%; /* Reserva el 40% del ancho para la etiqueta */
+        margin-right: 10px; /* Espacio entre la etiqueta y el contenido */
+        text-align: left; /* Alinea la etiqueta a la izquierda */
+    }
+
+    .reservas-table td:last-child {
+        padding-bottom: 0; /* Elimina el padding inferior en la última celda */
+    }
+
+    .reservas-table .btn {
+        display: inline-flex; /* Muestra el botón como inline-flex */
+        width: auto; /* Ancho ajustable según el contenido */
+        text-align: left !important; /* Forzar alineación a la izquierda */
+        margin: 5px 2px; /* Margen reducido alrededor del botón */
+        justify-content: flex-start; /* Alinea el contenido del botón a la izquierda */
+    }
+}
+
+/* Columna de selección masiva (checkbox) */
+.reservas-table th:nth-child(1), .reservas-table td:nth-child(1) {
+    width: 40px; /* Ancho fijo para la columna de checkbox */
+    text-align: center; /* Centra el contenido */
+}
+
+/* Columna # (número) */
+.reservas-table th:nth-child(2), .reservas-table td:nth-child(2) {
+    width: 50px; /* Ancho fijo para la columna de números */
+    text-align: center; /* Centra el contenido */
+}
+
+/* Estilo para el botón Ver */
+.btn-view {
+    background-color: #3D3BF3; /* Fondo azul para el botón de ver */
+    color: #fff; /* Texto blanco */
+}
+
+.btn-view:hover {
+    background-color: #22177A; /* Fondo azul oscuro al pasar el cursor */
+}
+
+/* Estilos para los detalles en el modal de vista */
+.multimedia-details {
+    text-align: left; /* Alinea los detalles a la izquierda */
+    margin-top: 20px; /* Separa los detalles del contenido superior */
+}
+
+.multimedia-details div {
+    margin-bottom: 10px; /* Espacio inferior entre cada detalle */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+}
+
+.multimedia-details i {
+    margin-right: 10px; /* Separa el icono del texto en los detalles */
+    color: #007bff; /* Color azul para los iconos */
+}
+
+/* Efecto Pulse */
+.grow {
+    display: inline-block; /* Muestra el elemento como bloque en línea */
+    transition: transform 0.3s ease-in-out; /* Transición suave para el efecto de escala */
+}
+.grow:hover {
+    transform: scale(1.1); /* Amplía el elemento al pasar el cursor */
+}
+
+/* Modal general de progreso (similar a tus otros modales) */
+#progressModal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija en la pantalla */
+    z-index: 999; /* Alta prioridad para superponer otros elementos */
+    left: 0; /* Posición desde el borde izquierdo */
+    top: 0; /* Posición desde el borde superior */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    overflow: auto; /* Permite scroll si el contenido excede el área visible */
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente para overlay */
+}
+  
+#progressModal .modal-content {
+    background-color: #fefefe; /* Fondo claro para el contenido del modal */
+    margin: 10% auto; /* Centrado vertical con margen superior del 10% */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #888; /* Borde gris para delimitar el modal */
+    width: 300px; /* Ancho fijo de 300px */
+    text-align: center; /* Centra el contenido textual */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+}
+  
+.progress-bar-container {
+    margin: 20px 0; /* Espacio vertical alrededor de la barra de progreso */
+    text-align: center; /* Centra la barra de progreso */
+}
+  
+.progress-bar {
+    width: 100%; /* La barra ocupa todo el ancho disponible */
+    height: 20px; /* Altura fija de 20px */
+    background-color: #ddd; /* Fondo gris para la barra */
+    border-radius: 5px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta contenido desbordado */
+    display: inline-block; /* Se muestra como bloque en línea */
+    vertical-align: middle; /* Alinea verticalmente en medio */
+}
+  
+.progress-fill {
+    height: 100%; /* Ocupa toda la altura de la barra */
+    background-color: #4caf50; /* Color verde para indicar progreso */
+    width: 0%; /* Ancho inicial en 0% */
+    transition: width 0.3s ease; /* Transición suave para cambios en el ancho */
+    border-radius: 5px; /* Bordes redondeados */
+}
+  
+#progressText {
+    display: inline-block; /* Se muestra como bloque en línea */
+    margin-left: 8px; /* Espacio a la izquierda del texto */
+    vertical-align: middle; /* Alinea verticalmente en medio */
+    font-weight: bold; /* Texto en negrita para resaltar */
+}

@@ -1,0 +1,328 @@
+/* Estilos de los iconos de corazón y mensaje */
+.book-icons { /* Contenedor de los iconos de libro */
+    display: flex; /* Se utiliza flexbox para organizar los iconos en línea */
+    justify-content: space-around; /* Espacia los iconos equitativamente */
+    margin-top: 10px; /* Separa el contenedor del contenido superior */
+    align-items: center; /* Alinea verticalmente los iconos al centro */
+    gap: 5px; /* Espacio fijo entre cada icono */
+}
+
+.book-icons i { /* Estilos para cada icono dentro del contenedor .book-icons */
+    font-size: 20px; /* Define el tamaño de fuente de los iconos */
+    color: #666; /* Color gris para los iconos por defecto */
+    cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    transition: color 0.3s ease; /* Suaviza la transición de color al interactuar */
+}
+
+.book-icons i:hover { /* Estilos cuando se pasa el cursor por encima de un icono */
+    color: #ff5252; /* Cambia el color a rojo en estado hover */
+}
+
+.liked { /* Clase para indicar que el icono ha sido "likeado" */
+    color: #ff5252 !important; /* Fuerza el color rojo para iconos marcados */
+}
+
+.like-counter { /* Estilos para el contador de "likes" */
+    font-size: 14px; /* Tamaño de fuente reducido para el contador */
+    margin-left: -75px; /* Ajuste de posición hacia la izquierda */
+    color: #333; /* Color oscuro para el texto del contador */
+}
+
+/* ======= PÁGINA DE CATÁLOGO ======= */
+#searchBar { /* Estilos para el campo de búsqueda */
+    width: 50%; /* Ocupa la mitad del ancho del contenedor */
+    padding: 10px; /* Espacio interno para el contenido del input */
+    font-size: 16px; /* Tamaño de fuente para el texto ingresado */
+    border: 2px solid #ccc; /* Borde gris claro alrededor del input */
+    border-radius: 20px; /* Bordes redondeados para un aspecto más suave */
+    margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
+}
+
+.book-catalog { /* Contenedor para el catálogo de libros */
+    display: flex; /* Usa flexbox para organizar las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se acomoden en varias filas */
+    gap: 1rem; /* Espacio uniforme entre cada tarjeta */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    margin-top: 20px; /* Separa las tarjetas de otros elementos (como los filtros) */
+}
+
+.book-card { /* Estilos individuales para cada tarjeta de libro */
+    background-color: #fff; /* Fondo blanco para la tarjeta */
+    border: 1px solid #ccc; /* Borde gris claro alrededor de la tarjeta */
+    border-radius: 10px; /* Bordes redondeados en la tarjeta */
+    padding: 1rem; /* Espacio interno para separar el contenido de los bordes */
+    width: 200px; /* Ancho fijo para cada tarjeta */
+    text-align: center; /* Centra el contenido textual dentro de la tarjeta */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición suave para transformaciones y sombras */
+}
+
+.book-card:hover { /* Efectos al pasar el cursor sobre la tarjeta */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la tarjeta */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Aplica sombra para destacar la tarjeta */
+}
+
+/* Actualización para imágenes: tamaño fijo y ajuste con cover */
+.book-card img { /* Estilos para la imagen dentro de la tarjeta */
+    width: 200px; /* Ancho fijo para la imagen */
+    height: 280px; /* Alto fijo para la imagen */
+    object-fit: cover; /* La imagen se ajusta sin distorsión cubriendo el área asignada */
+    border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior de la imagen */
+}
+
+.book-info { /* Contenedor para la información del libro */
+    padding: 0.5rem 0; /* Espacio vertical para separar la información */
+}
+
+.book-actions { /* Contenedor para los botones de acción en la tarjeta */
+    display: flex; /* Usa flexbox para organizar los botones */
+    flex-direction: column; /* Coloca los botones en columna */
+    gap: 0.5rem; /* Espacio entre cada botón */
+}
+
+.book-actions .row { /* Fila para agrupar botones dentro de las acciones */
+    display: flex; /* Usa flexbox para alinear los botones en fila */
+    justify-content: space-between; /* Distribuye el espacio entre los botones */
+}
+
+.book-actions button { /* Estilos generales para los botones de acción */
+    display: block; /* Se muestra como elemento de bloque */
+    width: 48%; /* Ancho casi la mitad para permitir dos botones en una fila */
+    padding: 0.5rem; /* Espacio interno para el texto del botón */
+    color: white; /* Color de texto blanco */
+    border: none; /* Sin borde por defecto */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    cursor: pointer; /* Indica que el botón es interactivo */
+}
+
+.book-actions .btn-primary { background-color: #0755a8; } /* Botón primario con fondo azul oscuro */
+.book-actions .btn-success { background-color: #1c2974; } /* Botón de éxito con fondo azul profundo */
+.book-actions .btn-warning { background-color: #019401; } /* Botón de advertencia con fondo verde */
+.book-actions .btn-danger  { background-color: #DC3545; } /* Botón de peligro con fondo rojo */
+
+.book-actions .btn-unavailable { /* Botón para acciones no disponibles */
+    background-color: #6c757d; /* Fondo gris para indicar inactividad */
+    opacity: 0.5; /* Semitransparente para reforzar el estado deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor para indicar que no se puede interactuar */
+}
+
+.book-actions button:hover { /* Efecto hover para todos los botones de acción */
+    opacity: 0.8; /* Reduce la opacidad al pasar el cursor para efecto visual */
+}
+
+/* ==========================*/
+/* MODAL FORMULARIO RESERVAS */
+/* ========================= */
+
+/* Ajuste del contenedor del modal */
+.modal-content { /* Contenedor principal del modal de reservas */
+    max-width: 400px; /* Ancho máximo del modal para mantener proporciones */
+    margin: auto; /* Centra el modal horizontalmente en la pantalla */
+    padding: 20px; /* Espacio interno para el contenido del modal */
+    background-color: #fff; /* Fondo blanco para el modal */
+    border: 2px solid #056ca7; /* Borde de color neón para resaltar el modal */
+    box-shadow: 
+        0 0 10px #056ca7, /* Primera capa de sombra neón */
+        0 0 20px #056ca7, /* Segunda capa de sombra neón */
+        0 0 30px #056ca7; /* Tercera capa de sombra neón */
+}
+
+/* Centrar el título del modal */
+.modal-content h3 { /* Título dentro del modal */
+    text-align: center; /* Centra el texto del título */
+    margin-bottom: 1rem; /* Separa el título del contenido inferior */
+}
+
+/* Estilos para los campos del formulario */
+.form-group { /* Agrupa cada campo del formulario */
+    margin-bottom: 1rem; /* Separa cada grupo de campo verticalmente */
+    text-align: center; /* Centra los elementos internos del grupo */
+}
+
+.form-group label { /* Etiquetas de cada campo del formulario */
+    display: block; /* Asegura que la etiqueta ocupe su propia línea */
+    margin-bottom: 0.5rem; /* Espacio inferior para separar de su campo */
+}
+
+.form-group input { /* Campos de entrada del formulario */
+    width: 80%;            /* Ancho del input relativo al contenedor */
+    padding: 0.5rem;       /* Espacio interno para facilitar la lectura */
+    border: 1px solid #ccc; /* Borde sutil para delimitar el campo */
+    border-radius: 5px;    /* Bordes redondeados en el input */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    margin: 0 auto;        /* Centra el input dentro del contenedor */
+}
+
+.form-group input:focus { /* Estilos cuando el input está en foco */
+    outline: none;         /* Elimina el contorno por defecto del navegador */
+    border-color: #007BFF; /* Cambia el color del borde al estar activo */
+}
+
+/* Estilos para el botón del formulario */
+form button { /* Botón de envío del formulario */
+    display: block;      /* Se muestra como bloque para centrar */
+    width: auto;         /* El ancho se ajusta al contenido del botón */
+    min-width: 120px;    /* Ancho mínimo para asegurar legibilidad */
+    padding: 0.75rem 1rem; /* Espaciado interno para mayor comodidad */
+    color: white;        /* Texto en color blanco */
+    background-color: #0652a3; /* Fondo azul para el botón */
+    border: none;        /* Sin borde para un diseño limpio */
+    border-radius: 5px;  /* Bordes redondeados */
+    cursor: pointer;     /* Cursor pointer para indicar interactividad */
+    margin: 1rem auto 0 auto;  /* Centra el botón y agrega margen superior */
+}
+
+form button:hover { /* Efecto hover para el botón del formulario */
+    background-color: #003a77; /* Fondo más oscuro al pasar el cursor */
+}
+
+/* ------------------------------ */
+/* Ajustes para el campo Contraseña */
+/* ------------------------------ */
+.password-container { /* Contenedor para el campo de contraseña y su ícono */
+    position: relative; /* Posiciona elementos internos de forma relativa */
+    display: block;     /* Se muestra como bloque */
+    width: 80%;         /* Ancho del contenedor, ajustable según necesidad */
+    margin: 0 auto;     /* Centra el contenedor horizontalmente */
+}
+
+.password-container input { /* Estilos para el input de contraseña */
+    width: 100%;          /* Ocupa todo el ancho del contenedor */
+    padding-right: 40px;  /* Espacio a la derecha para el ícono de mostrar contraseña */
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+}
+
+.password-container .toggle-password { /* Ícono para alternar la visibilidad de la contraseña */
+    position: absolute;  /* Posición absoluta respecto al contenedor */
+    top: 50%;            /* Posicionado a la mitad verticalmente */
+    right: 10px;         /* Separación desde el borde derecho */
+    transform: translateY(-50%); /* Ajusta para centrar verticalmente */
+    cursor: pointer;     /* Cursor pointer para indicar que es interactivo */
+}
+
+/* ==================== */
+/* NUEVA Paginación Circular */
+/* ==================== */
+.pagination-circles { /* Contenedor para la paginación con círculos */
+    display: flex; /* Usa flexbox para organizar los elementos */
+    align-items: center; /* Alinea verticalmente los círculos */
+    justify-content: center; /* Centra los círculos horizontalmente */
+    gap: 10px; /* Espacio fijo entre cada círculo */
+    list-style: none; /* Elimina la viñeta de la lista */
+    margin: 20px 0; /* Margen vertical para separar de otros elementos */
+    padding: 0; /* Elimina el padding por defecto */
+}
+
+.pagination-circles li { /* Cada elemento de la lista de paginación */
+    list-style: none; /* Asegura que no tenga estilo de lista */
+}
+
+.pagination-circles li a { /* Enlaces de paginación */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    width: 40px; /* Ancho fijo para cada círculo */
+    height: 40px; /* Alto fijo para cada círculo */
+    background-color: #eee; /* Fondo gris claro */
+    color: #333; /* Color del texto */
+    border-radius: 50%; /* Forma circular */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    text-decoration: none; /* Elimina subrayado de enlaces */
+    font-weight: 500; /* Peso de fuente medio para visibilidad */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para cambios de color */
+    border: 1px solid #ddd; /* Borde sutil para definir el círculo */
+}
+
+.pagination-circles li a.active,
+.pagination-circles li a:hover { /* Estado activo o al pasar el cursor sobre el enlace */
+    background-color: #007bff; /* Fondo azul para el estado activo/hover */
+    color: #fff; /* Texto blanco en estado activo/hover */
+    border-color: #007bff; /* Borde azul para coherencia visual */
+}
+
+.pagination-circles li a.prev i,
+.pagination-circles li a.next i { /* Íconos dentro de botones de navegación (previo y siguiente) */
+    font-size: 18px; /* Tamaño de fuente ajustado para los íconos */
+}
+
+.pagination-circles li a.disabled { /* Estilo para enlaces de paginación deshabilitados */
+    pointer-events: none; /* Desactiva la interacción con el enlace */
+    opacity: 0.4; /* Aplica opacidad reducida para indicar deshabilitado */
+    cursor: default; /* Cursor por defecto para estados inactivos */
+}
+
+/* ==================== */
+/* Estilos para Filtros */
+/* ==================== */
+.search-filters .filters { /* Contenedor para los filtros de búsqueda */
+    display: flex; /* Organiza los filtros con flexbox */
+    flex-wrap: nowrap; /* Evita el salto de línea de los filtros */
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+    justify-content: space-evenly; /* Distribuye el espacio de manera equitativa */
+    gap: 2rem; /* Espacio amplio entre cada filtro */
+    padding: 10px 20px; /* Espaciado interno para separar del borde */
+}
+
+.search-filters .filters .filter-item { /* Contenedor individual para cada filtro */
+    display: flex; /* Usa flexbox para organizar el contenido */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+.search-filters .filters .filter-item i { /* Icono representativo de cada filtro */
+    font-size: 1.2rem; /* Tamaño de fuente aumentado para el icono */
+    color: #007bff; /* Color azul para destacar el icono */
+    margin-bottom: 4px; /* Pequeño espacio debajo del icono */
+}
+
+.search-filters .filters .filter-item label { /* Etiqueta de cada filtro */
+    font-size: 0.8rem; /* Tamaño de fuente reducido para la etiqueta */
+    color: #333; /* Color oscuro para el texto */
+    font-weight: 600; /* Negrita moderada para resaltar la etiqueta */
+    margin-bottom: 4px; /* Espacio debajo de la etiqueta */
+    text-align: center; /* Centra el texto de la etiqueta */
+}
+
+.search-filters .filters .filter-item select { /* Menú desplegable para cada filtro */
+    padding: 5px 10px; /* Espaciado interno para el select */
+    font-size: 0.9rem; /* Tamaño de fuente para el contenido del select */
+    border: 1px solid #ccc; /* Borde sutil para delimitar el select */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    background-color: #fff; /* Fondo blanco para el select */
+    color: #333; /* Color del texto del select */
+    outline: none; /* Elimina el contorno por defecto */
+    transition: border-color 0.3s ease; /* Suaviza la transición al cambiar el borde */
+}
+
+.search-filters .filters .filter-item select:focus { /* Estado activo del select */
+    border-color: #007bff; /* Cambia el color del borde al estar enfocado */
+}
+
+/* ==================== */
+/* Media Queries para Responsividad */
+/* ==================== */
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) { /* Reglas para dispositivos con ancho máximo de 768px */
+    #searchBar { /* Ajuste del campo de búsqueda para tablets */
+        width: 80%; /* Aumenta el ancho para mejor visibilidad en pantallas medianas */
+    }
+    .search-filters .filters { /* Ajuste en el contenedor de filtros */
+        flex-wrap: wrap; /* Permite que los filtros se dispongan en varias filas */
+        gap: 1rem; /* Reduce el espacio entre filtros */
+        justify-content: center; /* Centra los filtros en la pantalla */
+        padding: 10px; /* Ajusta el padding para dispositivos más pequeños */
+    }
+    .search-filters .filters .filter-item { /* Ajuste individual de cada filtro en tablets */
+        width: 45%; /* Define un ancho para cada filtro en pantallas medianas */
+    }
+}
+
+/* Para pantallas chicas (móviles) */
+@media (max-width: 576px) { /* Reglas para dispositivos móviles con ancho máximo de 576px */
+    #searchBar { /* Ajuste del campo de búsqueda para móviles */
+        width: 90%; /* Casi ocupa el ancho completo en pantallas pequeñas */
+    }
+    .search-filters .filters .filter-item { /* Ajuste de filtros para móviles */
+        width: 100%; /* Cada filtro ocupa el ancho completo disponible */
+        margin-bottom: 0.5rem; /* Pequeño margen inferior para separar filtros */
+    }
+}

@@ -1,0 +1,400 @@
+/* ======= REGLAS BÁSICAS ======= */
+html, body {
+  height: 100%; /* Asegura que html y body ocupen el 100% de la altura */
+  margin: 0; /* Elimina el margen por defecto */
+}
+
+body {
+  font-family: Arial, sans-serif; /* Define la fuente principal */
+  display: flex; /* Activa flexbox en el body */
+  flex-direction: column; /* Organiza el contenido del body en columna */
+}
+
+.container {
+  display: flex; /* Utiliza flexbox para organizar su contenido */
+  flex-direction: column; /* Organiza los elementos en columna */
+  min-height: 100vh; /* Asegura que el contenedor tenga al menos la altura de la ventana */
+}
+
+/* ======= BARRA DE NAVEGACIÓN ======= */
+nav {
+  display: flex; /* Activa flexbox en la barra de navegación */
+  align-items: center; /* Centra verticalmente los elementos del nav */
+  justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+  background-color: #ffffff; /* Fondo blanco para el nav */
+  padding: 10px 20px; /* Espaciado interno: 10px vertical y 20px horizontal */
+  position: relative; /* Posicionamiento relativo para elementos hijos posicionados */
+}
+
+nav .logo {
+  display: flex; /* Usa flexbox para organizar el logo y su texto */
+  align-items: center; /* Centra verticalmente los elementos del logo */
+}
+
+nav .logo img {
+  max-width: 60px; /* Limita el ancho máximo del logo a 60px */
+}
+
+nav .logo h1 {
+  color: rgb(41, 37, 37); /* Define un color oscuro para el texto del logo */
+  font-size: 16px; /* Establece un tamaño de fuente pequeño */
+  margin: 0 0 0 10px; /* Sin margen excepto 10px a la izquierda para separar del logo */
+}
+
+nav .nav-links {
+  display: flex; /* Organiza los enlaces de navegación en línea */
+  align-items: center; /* Centra verticalmente los enlaces */
+}
+
+nav .nav-links a {
+  color: rgb(41, 37, 37); /* Color oscuro para los textos de los enlaces */
+  padding: 10px 15px; /* Espaciado interno para los enlaces */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  text-align: center; /* Centra el texto en cada enlace */
+  border-radius: 20px; /* Bordes redondeados en los enlaces */
+  margin-left: 5px; /* Pequeño margen a la izquierda entre enlaces */
+}
+
+nav .nav-links a:hover {
+  border: 2px solid #063c6e; /* Agrega borde con tono neón al pasar el cursor */
+  box-shadow: 0 0 8px #063c6e, 0 0 16px #063c6e; /* Sombra luminosa para resaltar el enlace */
+  border-radius: 16px; /* Ajusta el redondeo en hover */
+}
+
+.nav-link.active,
+.nav-link:hover {
+  border: 2px solid #063c6e; /* Aplica borde neón a enlaces activos o en hover */
+  box-shadow: 0 0 8px #063c6e, 0 0 16px #063c6e; /* Sombra luminosa para destacar el enlace */
+  border-radius: 16px; /* Redondea las esquinas en estado activo/hover */
+}
+
+/* ======= MAIN Y FOOTER ======= */
+main {
+  padding: 20px; /* Espaciado interno en la sección main */
+  text-align: center; /* Centra el texto en el main */
+  flex-grow: 1; /* Permite que main ocupe el espacio disponible restante */
+}
+
+main h2 {
+  font-size: 24px; /* Tamaño de fuente para los títulos en main */
+  color: #333; /* Color de texto oscuro */
+  margin-bottom: 5px; /* Pequeño margen inferior */
+  margin-top: 10px; /* Margen superior para separar del contenido previo */
+}
+
+main p {
+  font-size: 18px; /* Tamaño de fuente para los párrafos en main */
+  color: #555; /* Color de texto gris medio */
+  margin-top: 5px; /* Margen superior para separar los párrafos */
+}
+
+footer {
+  text-align: center; /* Centra el contenido del pie de página */
+  padding: 10px 0; /* Espaciado vertical en footer */
+  margin-top: 20px; /* Margen superior para separar el footer del contenido */
+  border-top: 1px solid #ddd; /* Línea superior para delimitar el footer */
+  color: #202020; /* Color de texto en el footer */
+  font-size: 0.9rem; /* Tamaño de fuente reducido */
+}
+
+/* ======= MODALES ======= */
+.modal {
+  display: none; /* Oculta el modal por defecto */
+  position: fixed; /* Fija la posición del modal en la pantalla */
+  z-index: 1; /* Coloca el modal sobre otros elementos */
+  left: 0; /* Ubica el modal en el borde izquierdo */
+  top: 0; /* Ubica el modal en el borde superior */
+  width: 100%; /* Ancho completo de la ventana */
+  height: 100%; /* Altura completa de la ventana */
+  overflow: auto; /* Permite scroll si el contenido excede la pantalla */
+  background-color: rgba(0,0,0,0.4); /* Fondo semitransparente para oscurecer el fondo */
+  align-items: center; /* Centra verticalmente el contenido del modal */
+  justify-content: center; /* Centra horizontalmente el contenido del modal */
+}
+
+.modal-content {
+  background-color: #fff; /* Fondo blanco para el contenido del modal */
+  padding: 20px; /* Espaciado interno */
+  border: 1px solid #888; /* Borde gris para delimitar el modal */
+  width: 80%; /* Ancho relativo del modal */
+  max-width: 600px; /* Ancho máximo de 600px */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra para dar profundidad */
+  animation: modalopen 0.5s; /* Aplica animación al abrir el modal */
+}
+
+@keyframes modalopen {
+  from { opacity: 0; transform: translateY(-100px); } /* Comienza invisible y desplazado hacia arriba */
+  to { opacity: 1; transform: translateY(0); } /* Finaliza visible y en posición normal */
+}
+
+.close {
+  color: #aaa; /* Color gris para el botón de cerrar */
+  float: right; /* Ubica el botón a la derecha */
+  font-size: 28px; /* Tamaño grande para facilitar su visibilidad */
+  font-weight: bold; /* Negrita para destacar el botón */
+}
+
+.close:hover,
+.close:focus {
+  color: black; /* Cambia a negro al pasar el cursor o enfocar */
+  text-decoration: none; /* Elimina subrayado en hover/focus */
+  cursor: pointer; /* Muestra cursor de puntero */
+}
+
+.modal-body {
+  display: flex; /* Organiza el contenido del cuerpo del modal en fila */
+  gap: 20px; /* Espacio entre los elementos dentro del modal */
+}
+
+.modal-body img {
+  max-width: 150px; /* Limita el ancho máximo de la imagen en el modal */
+  border-radius: 5px; /* Bordes redondeados en la imagen */
+}
+
+.detalle-info {
+  flex-grow: 1; /* Permite que esta sección ocupe el espacio restante */
+}
+
+.detalle-info p {
+  margin: 0.5rem 0; /* Márgenes verticales en los párrafos de detalles */
+}
+
+.detalle-info p strong {
+  font-weight: bold; /* Resalta el texto en negrita dentro de los detalles */
+}
+
+/* ======= MODAL PDF EN PANTALLA COMPLETA ======= */
+#modalVerPDF .modal-content {
+  width: 90%; /* Ancho del modal PDF al 90% */
+  height: 90%; /* Alto del modal PDF al 90% */
+  max-width: 1400px; /* Ancho máximo para el modal PDF */
+  max-height: 90%; /* Altura máxima para el modal PDF */
+  margin: auto; /* Centra el modal PDF horizontalmente */
+  padding: 0; /* Sin padding para maximizar el espacio */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra para dar profundidad */
+}
+
+#modalVerPDF iframe {
+  height: calc(100% - 40px); /* Altura del iframe calculada restando 40px (para compensar padding/márgenes) */
+  width: 100%; /* Ancho completo del iframe */
+  border: none; /* Sin borde en el iframe */
+}
+
+/* ======= CARRUSEL: LIBROS MÁS VALORADOS ======= */
+.book-info h3 {
+  font-size: 1.2rem; /* Tamaño de fuente para el título del libro */
+  margin-bottom: 0.5em; /* Margen inferior para separar el título del contenido */
+}
+
+.book-meta {
+  font-size: 0.9rem; /* Tamaño de fuente para los metadatos del libro */
+  margin: 0.2em 0; /* Pequeño margen vertical */
+}
+
+.book-cover img {
+  width: 150px;       /* Ancho fijo para la portada del libro */
+  height: 200px;      /* Alto fijo para la portada del libro */
+  object-fit: cover;  /* Ajusta la imagen para recortar sin deformar */
+  border-radius: 4px; /* Redondea ligeramente las esquinas */
+}
+
+/* Efecto Zoom en la tarjeta de libro */
+.book-item {
+  position: relative; /* Posiciona relativo para poder usar z-index */
+  z-index: 0; /* Nivel base de superposición */
+  transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
+}
+.book-item:hover {
+  transform: scale(1.03); /* Amplía la tarjeta al pasar el cursor */
+  z-index: 2; /* Eleva el z-index para que se superponga a otros elementos */
+}
+/* Ajuste para Swiper + Book-item */
+.swiper-slide.book-item:hover {
+  transform: scale(1.03) !important; /* Forzar el efecto de zoom en el carrusel */
+}
+
+/* Si usas .swiper para el contenedor */
+.swiper-new {
+  width: 100%;       /* El contenedor ocupa todo el ancho disponible */
+  max-width: 1200px; /* Define un ancho máximo para el carrusel */
+  margin: 0 auto;    /* Centra el carrusel en la página */
+  overflow: hidden;  /* Oculta el contenido desbordante */
+  position: relative; /* Posicionamiento relativo para elementos internos */
+}
+
+/* Aplica estilos comunes a todos los carruseles */
+.swiper-new,
+.swiper-valorados,
+.swiper-leidos {
+  width: 100%;            /* Ocupa el 100% del ancho disponible */
+  max-width: 1200px;      /* Ancho máximo definido */
+  margin: 0 auto;         /* Centrado horizontal */
+  overflow: hidden;       /* Oculta el contenido que desborde horizontalmente */
+  position: relative;     /* Posicionamiento relativo para los elementos internos */
+}
+
+/* Asegúrate de no forzar un ancho grande a .swiper-slide */
+.swiper-slide {
+  box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
+}
+
+/* Paginación específica de “Libros recién agregados” */
+.swiper-pagination-nuevos {
+  position: absolute; /* Posiciona la paginación de manera absoluta */
+  bottom: -20px; /* Ubica la paginación 20px por debajo del contenedor */
+  left: 50%; /* Centra horizontalmente la paginación */
+  transform: translateX(-50%); /* Ajusta el centrado exacto */
+  z-index: 10; /* Asegura que la paginación se muestre por encima */
+}
+
+/* Imágenes con ancho y alto fijos, o un max-width para asegurar uniformidad */
+.book-cover img {
+  width: 150px; /* Ancho fijo para la imagen de la portada */
+  height: 200px; /* Alto fijo para la imagen de la portada */
+  object-fit: cover; /* Ajusta la imagen para recortar sin deformar */
+}
+
+/* ======= MEDIA QUERIES PARA DISEÑO RESPONSIVO ======= */
+
+/* MÓVILES (max-width: 576px) */
+@media (max-width: 576px) {
+/* Navegación apilada */
+nav {
+  flex-direction: column; /* Organiza la navegación en columna en móviles */
+  align-items: flex-start; /* Alinea los elementos a la izquierda */
+  padding: 10px; /* Ajusta el padding en dispositivos móviles */
+}
+nav .logo {
+  margin-bottom: 10px; /* Separa el logo de los enlaces en móviles */
+}
+nav .nav-links {
+  flex-direction: column; /* Organiza los enlaces en columna */
+  width: 100%; /* Los enlaces ocupan todo el ancho disponible */
+}
+nav .nav-links a {
+  width: 100%; /* Cada enlace ocupa el 100% del ancho */
+  text-align: left; /* Alinea el texto a la izquierda */
+  margin-left: 0; /* Elimina margen izquierdo */
+  margin-bottom: 5px; /* Pequeño margen inferior entre enlaces */
+}
+
+/* Ajuste del contenedor principal */
+main {
+  padding: 10px; /* Reduce el padding para móviles */
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Buscador ocupa casi todo el ancho */
+#searchBar {
+  width: 90%; /* Campo de búsqueda se expande al 90% del ancho */
+}
+
+/* Catálogo en una sola columna */
+.book-catalog {
+  flex-direction: column; /* Organiza los libros en columna */
+  align-items: center; /* Centra los elementos en la columna */
+}
+/* Tarjetas al 90% del ancho */
+.book-card {
+  width: 90%; /* Cada tarjeta ocupa el 90% del ancho */
+  margin-bottom: 20px; /* Espacio inferior entre tarjetas */
+}
+
+/* Ajustes del modal */
+.modal-content {
+  width: 90%; /* Ancho del modal ajustado para móviles */
+}
+}
+
+/* TABLETS PEQUEÑAS (577px - 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+nav {
+  padding: 10px 15px; /* Ajusta el padding en tablets pequeñas */
+}
+
+/* Ajuste de la barra de navegación */
+nav .nav-links {
+  flex-wrap: wrap; /* Permite que los enlaces se distribuyan en varias líneas */
+  justify-content: flex-end; /* Alinea los enlaces a la derecha */
+}
+
+/* Buscador un poco más ancho */
+#searchBar {
+  width: 70%; /* Campo de búsqueda ocupa el 70% del ancho */
+}
+
+/* Catálogo con 2 columnas si el espacio lo permite */
+.book-card {
+  width: 40%; /* Cada tarjeta ocupa el 40% del ancho para formar dos columnas */
+  margin-bottom: 20px; /* Espacio inferior entre tarjetas */
+}
+}
+
+/* PANTALLAS MEDIANAS (769px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+nav {
+  padding: 10px 20px; /* Padding ajustado para pantallas medianas */
+}
+
+#searchBar {
+  width: 60%; /* Campo de búsqueda ocupa el 60% del ancho en pantallas medianas */
+}
+
+.book-catalog {
+  gap: 1rem; /* Espacio entre tarjetas en el catálogo */
+}
+/* Muestra ~3 columnas, ajusta a tu gusto */
+.book-card {
+  width: 30%; /* Cada tarjeta ocupa el 30% del ancho para formar tres columnas */
+}
+}
+
+.new-books {
+  margin-top: 40px;  /* Separa la sección "nuevos libros" de lo anterior */
+  margin-bottom: 20px;  /* Separa la sección "nuevos libros" de lo inferior */
+}
+
+.new-books h2 {
+  margin-top: 0;  /* Elimina margen superior en el título de "nuevos libros" */
+  margin-bottom: 10px;  /* Margen inferior para separar el título del contenido */
+  text-align: center; /* Centra el título de la sección */
+}
+
+.book-cover {
+  position: relative;  /* Posiciona relativo para permitir la superposición (ej. badge) */
+}
+
+.top-rated-books {
+  margin-top: 30px;  /* Separa la sección de libros mejor valorados del contenido superior */
+}
+
+.top-rated-books h2 {
+  color: rgb(22, 22, 22);  /* Define un color oscuro para el título de libros mejor valorados */
+}
+
+/*Etiqueta Nuevo de libros recien agregados*/
+.new-badge {
+  position: absolute;  /* Posiciona el badge de forma absoluta sobre la portada */
+  top: 0;  /* Ubica el badge en la parte superior */
+  left: 0;  /* Ubica el badge en la parte izquierda */
+  background-color: #e74c3c;  /* Fondo rojo para el badge */
+  color: #fff;  /* Texto blanco en el badge */
+  font-size: 0.8rem;  /* Tamaño de fuente pequeño */
+  font-weight: bold;  /* Texto en negrita para destacar */
+  padding: 4px 8px;  /* Espaciado interno en el badge */
+  border-radius: 0 0 8px 0;  /* Redondea solo la esquina inferior derecha */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);  /* Sombra para dar profundidad al badge */
+  z-index: 5;  /* Asegura que el badge se muestre por encima de la imagen */ 
+}
+
+@media (max-width: 576px) {
+.swiper-slide.book-item {
+  display: flex !important; /* Fuerza el uso de flexbox en la tarjeta dentro del carrusel */
+  flex-direction: column; /* Organiza el contenido en columna */
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
+  text-align: center; /* Alinea el texto al centro */
+}
+}

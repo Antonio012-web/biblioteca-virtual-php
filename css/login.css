@@ -1,0 +1,303 @@
+/* Nueva clase para el área principal de login */
+.login-page {
+    /* Aplica el degradado en el <main> (opcional) */
+    /*background: linear-gradient(135deg, #20dba8, #d16ba5);*/  /* Degradado opcional */
+    padding: 50px 0;  /* Espaciado vertical para separar del borde */
+    min-height: calc(100vh - 140px);  /* Altura mínima ajustada */
+    box-sizing: border-box;  /* Incluye padding y borde en el cálculo del ancho */
+}
+
+/* Tarjeta de login */
+.login-container {
+    display: flex;  /* Organiza en dos columnas (imagen y formulario) */
+    background: #fff;  /* Fondo blanco para la tarjeta */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);  /* Sombra para dar profundidad */
+    border-radius: 20px;  /* Bordes muy redondeados */
+    overflow: hidden;  /* Oculta contenido desbordado */
+    max-width: 900px;  /* Ancho máximo de la tarjeta */
+    width: 90%;  /* Ancho relativo */
+    position: relative;  /* Permite posicionar elementos internos */
+    margin: 30px auto;  /* Centrado horizontal y margen superior */
+}
+
+/* Columna de la imagen */
+.login-image {
+    position: relative;  /* Permite posicionar elementos como overlays */
+    flex: 1;  /* Toma espacio proporcional */
+    background: #47588c;  /* Fondo para la imagen */
+    display: flex;  /* Centra el contenido */
+    justify-content: center;  /* Centrado horizontal */
+    align-items: center;  /* Centrado vertical */
+}
+
+.login-image img {
+    width: 80%;  /* La imagen ocupa el 80% del contenedor */
+    height: auto;  /* Mantiene la proporción original */
+    z-index: 1;  /* Se sitúa por encima del overlay */
+}
+
+.image-overlay {
+    position: absolute;  /* Cubre toda la imagen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);  /* Capa semitransparente para oscurecer la imagen */
+    z-index: 0;  /* Debajo de la imagen */
+}
+
+/* Columna del formulario */
+.login-form {
+    flex: 1;  /* Toma espacio proporcional */
+    padding: 40px;  /* Espaciado interno para el formulario */
+    display: flex;  /* Organiza su contenido */
+    flex-direction: column;  /* En columna */
+    justify-content: center;  /* Centrado vertical */
+}
+
+.login-form h2 {
+    margin: 0 0 10px;  /* Sin margen superior y con margen inferior para separar */
+    color: #6A1B9A;  /* Color del título */
+    text-align: center;  /* Centrado */
+}
+
+.login-form h3 {
+    margin: 0 0 20px;  /* Margen inferior para separar del formulario */
+    color: #6A1B9A;  /* Color del subtítulo */
+    text-align: center;  /* Centrado */
+}
+
+/* Campos de entrada con íconos */
+.login-form .input-group {
+    position: relative;  /* Permite posicionar el ícono dentro del campo */
+    display: flex;  /* Organiza el campo y el ícono en línea */
+    align-items: center;  /* Centrado vertical */
+    background: #f0f0f0;  /* Fondo gris claro para el campo */
+    border-radius: 5px;  /* Bordes redondeados */
+    margin-bottom: 20px;  /* Espacio inferior entre campos */
+    padding-left: 40px;  /* Espacio para el ícono */
+    height: 50px;  /* Altura fija del campo */
+}
+
+.login-form .input-group label {
+    position: absolute;  /* Posicionado sobre el campo */
+    left: 10px;  /* Separado a la izquierda */
+    font-size: 1.5rem;  /* Tamaño grande para el ícono */
+    color: #6A1B9A;  /* Color del ícono */
+}
+
+.login-form .input-group input {
+    flex: 1;  /* Toma el resto del espacio */
+    border: none;  /* Sin borde */
+    outline: none;  /* Sin contorno al enfocar */
+    background: transparent;  /* Fondo transparente para ver el contenedor */
+    font-size: 1rem;  /* Tamaño de fuente normal */
+    padding: 10px;  /* Espaciado interno */
+    height: 100%;  /* Ocupa la altura del grupo */
+}
+
+/* Ícono del ojo en el campo de contraseña */
+.password-wrapper {
+    position: relative;  /* Permite posicionar el ícono de mostrar/ocultar */
+    width: 100%;  /* Ocupa todo el ancho */
+}
+
+.password-wrapper i {
+    position: absolute;  /* Posicionado dentro del campo */
+    right: 10px;  /* Separado a la derecha */
+    top: 50%;  /* Centrado vertical */
+    transform: translateY(-50%);  /* Ajuste para centrar */
+    font-size: 1.2rem;  /* Tamaño del ícono */
+    color: #666;  /* Color del ícono */
+    cursor: pointer;  /* Indica que es clickeable */
+}
+
+/* Botón de envío */
+.login-form button {
+    padding: 10px;  /* Espaciado interno */
+    border: none;  /* Sin borde */
+    border-radius: 5px;  /* Bordes redondeados */
+    background: #8E24AA;  /* Fondo púrpura */
+    color: #fff;  /* Texto blanco */
+    cursor: pointer;  /* Cursor pointer */
+    width: 100%;  /* Botón ocupa todo el ancho */
+    font-size: 16px;  /* Tamaño de fuente adecuado */
+    transition: background 0.3s;  /* Transición para efecto hover */
+}
+
+.login-form button:hover {
+    background: #7B1FA2;  /* Cambia de tono al pasar el mouse */
+}
+
+/* Enlace de "¿Olvidó su contraseña?" */
+.login-form .options {
+    text-align: center;  /* Centrado del enlace */
+    margin-top: 20px;  /* Espacio superior */
+}
+
+.login-form .options .forgot {
+    color: #6A1B9A;  /* Color del enlace */
+    text-decoration: none;  /* Sin subrayado */
+}
+
+.login-form .options .forgot:hover {
+    text-decoration: underline;  /* Subrayado al pasar el mouse */
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;  /* Oculto por defecto */
+    position: fixed;  /* Posicionado respecto a la ventana */
+    z-index: 1;  /* Se muestra sobre otros elementos con menor z-index */
+    left: 0; top: 0;  /* Inicia en la esquina superior izquierda */
+    width: 100%; height: 100%;  /* Ocupa toda la pantalla */
+    overflow: auto;  /* Permite scroll si es necesario */
+    background-color: rgba(0,0,0,0.4);  /* Fondo semitransparente */
+}
+
+.modal-content {
+    background-color: #fefefe;  /* Fondo blanco para el contenido del modal */
+    margin: 10% auto;  /* Centrado vertical y horizontal */
+    padding: 20px;  /* Espaciado interno */
+    border: 1px solid #888;  /* Borde gris */
+    width: 90%;  /* Ancho relativo */
+    max-width: 400px;  /* Ancho máximo */
+    border-radius: 8px;  /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);  /* Sombra para dar profundidad */
+    animation-name: animatetop;  /* Nombre de la animación */
+    animation-duration: 0.4s;  /* Duración de la animación */
+}
+
+@keyframes animatetop {
+    from { top: -300px; opacity: 0; }  /* Inicio: fuera de vista y transparente */
+    to   { top: 0; opacity: 1; }  /* Fin: posición normal y visible */
+}
+
+.close {
+    color: #aaa;  /* Color gris claro para el botón de cerrar */
+    float: right;  /* Alineado a la derecha */
+    font-size: 28px;  /* Tamaño de fuente grande */
+    font-weight: bold;  /* Texto en negrita */
+}
+
+.close:hover,
+.close:focus {
+    color: black;  /* Cambia a negro al pasar el mouse o enfocar */
+    text-decoration: none;  /* Sin subrayado */
+    cursor: pointer;  /* Cursor pointer */
+}
+
+/* Estilos generales para formularios en el modal */
+h2 {
+    font-size: 24px;  /* Tamaño del título */
+    margin-bottom: 20px;  /* Espacio inferior */
+    color: #333;  /* Color del texto */
+    text-align: center;  /* Centrado */
+}
+
+label {
+    display: block;  /* Cada etiqueta ocupa una línea completa */
+    margin-bottom: 8px;  /* Espacio inferior */
+    font-weight: bold;  /* Texto en negrita */
+    color: #555;  /* Color gris para la etiqueta */
+}
+
+input[type="email"] {
+    width: calc(100% - 22px);  /* Ancho total menos padding y bordes */
+    padding: 10px;  /* Espaciado interno */
+    margin-bottom: 20px;  /* Espacio inferior */
+    border: 1px solid #ccc;  /* Borde gris claro */
+    border-radius: 4px;  /* Bordes redondeados */
+    box-sizing: border-box;  /* Incluye padding y borde en el cálculo del ancho */
+}
+
+button[type="submit"] {
+    width: 40%;  /* Botón ocupa el 40% del ancho */
+    background-color: #6A1B9A;  /* Fondo púrpura */
+    color: white;  /* Texto blanco */
+    padding: 10px;  /* Espaciado interno */
+    border: none;  /* Sin borde */
+    border-radius: 4px;  /* Bordes redondeados */
+    cursor: pointer;  /* Cursor pointer */
+    font-size: 16px;  /* Tamaño de fuente adecuado */
+    display: block;  /* Se muestra en bloque */
+    margin: 0 auto;  /* Centrado horizontal */
+    transition: background-color 0.3s ease;  /* Transición para efecto hover */
+}
+
+button[type="submit"]:hover {
+    background-color: #8E24AA;  /* Fondo cambia al pasar el mouse */
+}
+
+/* Contenedor para restablecimiento de contraseña */
+.password-reset-container {
+    max-width: 400px;  /* Ancho máximo para el contenedor */
+    margin: 50px auto;  /* Centrado con margen superior */
+    padding: 20px;  /* Espaciado interno */
+    border: 1px solid #ddd;  /* Borde sutil */
+    border-radius: 8px;  /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);  /* Sombra ligera */
+    background-color: #fff;  /* Fondo blanco */
+}
+
+.password-reset-container h2 {
+    font-size: 24px;  /* Tamaño del título */
+    margin-bottom: 20px;  /* Espacio inferior */
+    color: #333;  /* Color oscuro */
+    text-align: center;  /* Centrado */
+}
+
+.password-reset-container label {
+    display: block;  /* Etiqueta ocupa toda la línea */
+    margin-bottom: 8px;  /* Espacio inferior */
+    font-weight: bold;  /* Negrita */
+    color: #555;  /* Color gris */
+}
+
+.password-reset-container input[type="password"] {
+    width: calc(100% - 22px);  /* Ancho total menos ajustes */
+    padding: 10px;  /* Espaciado interno */
+    margin-bottom: 20px;  /* Espacio inferior */
+    border: 1px solid #ccc;  /* Borde gris claro */
+    border-radius: 4px;  /* Bordes redondeados */
+    box-sizing: border-box;  /* Incluye padding y borde en el ancho */
+}
+
+.password-reset-container button[type="submit"] {
+    width: 100%;  /* Botón ocupa todo el ancho */
+    background-color: #6A1B9A;  /* Fondo púrpura */
+    color: white;  /* Texto blanco */
+    padding: 10px;  /* Espaciado interno */
+    border: none;  /* Sin borde */
+    border-radius: 4px;  /* Bordes redondeados */
+    cursor: pointer;  /* Cursor pointer */
+    font-size: 16px;  /* Tamaño de fuente adecuado */
+}
+
+.password-reset-container button[type="submit"]:hover {
+    background-color: #8E24AA;  /* Cambio de fondo al pasar el mouse */
+}
+
+/* Ajuste de campo de contraseña para que no se corte el texto */
+.password-wrapper input {
+    width: 100%;  /* Campo ocupa todo el ancho */
+    padding-right: 3rem;  /* Espacio para el ícono */
+    overflow: hidden;  /* Oculta contenido desbordante */
+    white-space: nowrap;  /* No permite saltos de línea */
+    text-overflow: ellipsis;  /* Muestra puntos suspensivos si es necesario */
+    box-sizing: border-box;  /* Incluye padding y borde en el ancho */
+}
+
+/* Ícono para mostrar/ocultar contraseña */
+.password-wrapper i {
+    position: absolute;  /* Posicionado dentro del campo */
+    top: 50%;  /* Centrado vertical */
+    right: 0.10rem;  /* Muy cerca del borde derecho */
+    transform: translateY(-50%);  /* Ajuste para centrar */
+    cursor: pointer;  /* Indica interactividad */
+    color: #666;  /* Color gris para el ícono */
+    z-index: 10;  /* Se asegura que se vea por encima */
+    background-color: white;  /* Fondo blanco para resaltar */
+    padding: 0.3rem;  /* Espaciado interno para el ícono */
+    border-radius: 50%;  /* Forma circular */
+}

@@ -1,0 +1,621 @@
+body { /* Estilos globales para el cuerpo del documento */
+    font-family: Arial, sans-serif; /* Define la fuente principal */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
+    display: flex; /* Activa flexbox para la disposición interna */
+    height: 100vh; /* Establece la altura al 100% de la ventana del navegador */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+}
+
+/* Sidebar */
+.sidebar { /* Estilos para la barra lateral */
+    width: 250px; /* Ancho fijo de la sidebar */
+    background-color: #2C6E49; /* Fondo verde oscuro inspirado en el logo */
+    color: #E8F5E9; /* Color de texto: blanco suave */
+    transition: transform 0.3s ease, width 0.3s ease; /* Transiciones suaves para transformaciones y cambios de ancho */
+    position: fixed; /* Posición fija en la pantalla */
+    height: 100%; /* Ocupa el 100% de la altura de la ventana */
+    overflow-y: auto; /* Permite scroll vertical si el contenido excede el alto */
+    overflow-x: hidden; /* Oculta scroll horizontal */
+    z-index: 1000; /* Prioridad en la superposición sobre otros elementos */
+    transform: translateX(0); /* Posición inicial sin desplazamiento horizontal */
+}
+
+.sidebar.sidebar-hidden { /* Estado para ocultar la sidebar */
+    transform: translateX(-250px); /* Desplaza la sidebar fuera de la vista hacia la izquierda */
+}
+
+/* Encabezado fijo de la sidebar */
+.sidebar-header { /* Contenedor del encabezado dentro de la sidebar */
+    position: sticky; /* Permite que el encabezado se fije al top al hacer scroll */
+    top: 0; /* Se adhiere a la parte superior */
+    background-color: #1D4D34; /* Fondo en un verde aún más oscuro para el encabezado */
+    z-index: 1020; /* Se posiciona por encima de otros elementos de la sidebar */
+    padding: 10px 16px; /* Espaciado interno para dar confort visual */
+    color: #FFFFFF; /* Color de texto blanco para un alto contraste */
+}
+
+/* Ícono hamburguesa en la cabecera */
+.sidebar .close-btn { /* Botón para cerrar u ocultar la sidebar */
+    font-size: 30px; /* Tamaño grande para mayor visibilidad */
+    background: none; /* Sin fondo para mantener la transparencia */
+    border: none; /* Sin borde para un diseño limpio */
+    color: #C8E6C9; /* Color verde pastel claro para el ícono */
+    cursor: pointer; /* Cursor de mano para indicar interactividad */
+}
+
+/* Scrollbar de la sidebar */
+.sidebar::-webkit-scrollbar { /* Personaliza la barra de scroll en navegadores WebKit */
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+.sidebar::-webkit-scrollbar-thumb { /* Personaliza la "thumb" o parte móvil del scrollbar */
+    background-color: #A5D6A7; /* Color verde claro para la thumb */
+    border-radius: 4px; /* Bordes redondeados en la thumb */
+}
+.sidebar::-webkit-scrollbar-thumb:hover { /* Estilo al pasar el cursor sobre la thumb */
+    background-color: #81C784; /* Color verde vibrante al hacer hover */
+}
+
+/* Enlaces de la sidebar */
+.sidebar a { /* Estilos para los enlaces dentro de la sidebar */
+    display: block; /* Ocupan toda la línea para facilitar el clic */
+    color: #C8E6C9; /* Color verde pastel claro para los textos de los enlaces */
+    padding: 16px; /* Espaciado interno para dar comodidad al enlace */
+    text-decoration: none; /* Elimina subrayados predeterminados */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves para fondo y escala al interactuar */
+}
+.sidebar a:hover { /* Estilo al pasar el cursor sobre un enlace */
+    background-color: #66BB6A; /* Fondo en verde vibrante al hacer hover */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño para destacar */
+    color: #FFFFFF; /* Cambia el color a blanco para mayor contraste */
+    border-radius: 5px; /* Bordes suavizados en el estado hover */
+}
+.sidebar a.active { /* Enlace activo o seleccionado */
+    background-color: #43A047; /* Fondo en verde fuerte para resaltar el enlace activo */
+    color: #FFFFFF; /* Texto en blanco */
+    border-left: 4px solid #014410; /* Borde izquierdo en azul para destacar el estado activo */
+    border-radius: 5px; /* Bordes redondeados para un acabado pulido */
+}
+.sidebar i { /* Estilos para los íconos dentro de la sidebar */
+    color: #C8E6C9; /* Color verde pastel claro para los íconos */
+    margin-right: 8px; /* Espacio a la derecha para separar el ícono del texto */
+}
+.sidebar a:hover i { /* Estilo de íconos al hacer hover en el enlace contenedor */
+    color: #FFFFFF; /* Cambia a blanco para destacar */
+}
+.sidebar a.active i { /* Íconos en enlaces activos */
+    color: #FFFFFF; /* Se muestran en blanco cuando el enlace está activo */
+}
+
+/* Contenido principal */
+.content { /* Contenedor principal de la página */
+    margin-left: 250px; /* Desplaza el contenido para dejar espacio a la sidebar */
+    padding: 16px; /* Espaciado interno para el contenido */
+    width: calc(100% - 250px); /* Ancho calculado para ocupar el espacio restante */
+    transition: margin-left 0.3s ease, width 0.3s ease; /* Transiciones suaves al ajustar el layout */
+    overflow: auto; /* Permite scroll interno si el contenido es extenso */
+    height: 100%; /* Ocupa el 100% de la altura disponible */
+}
+.content-full { /* Clase para contenido en pantalla completa (sin sidebar visible) */
+    margin-left: 0; /* Elimina el margen izquierdo */
+    width: 100%; /* Ocupa el 100% del ancho de la pantalla */
+}
+
+/* Botón flotante */
+.float-btn { /* Estilos para el botón flotante */
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija en la pantalla */
+    top: 20px; /* Ubicado a 20px desde el top */
+    left: 20px; /* Ubicado a 20px desde la izquierda */
+    background-color: rgba(51, 51, 51, 0.5); /* Fondo semitransparente oscuro */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Forma circular */
+    width: 50px; /* Ancho fijo */
+    height: 50px; /* Alto fijo */
+    font-size: 24px; /* Tamaño de fuente para el ícono */
+    cursor: pointer; /* Cursor de mano para indicar interactividad */
+    z-index: 1100; /* Prioridad alta en la superposición */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    transition: background-color 0.3s; /* Transición suave en el cambio de color de fondo */
+}
+.float-btn.show { /* Clase para mostrar el botón flotante */
+    display: flex; /* Cambia la visualización a flex para centrar el contenido */
+}
+.float-btn:hover { /* Efecto hover para el botón flotante */
+    background-color: #333; /* Fondo más oscuro al pasar el cursor */
+}
+.float-btn .tooltip-text { /* Tooltip asociado al botón flotante */
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0; /* Transparencia completa */
+    position: absolute; /* Posición absoluta respecto al botón */
+    left: 350%; /* Ubicado a la derecha del botón (ajuste personalizado) */
+    top: 0px; /* Alineado al top del botón */
+    transform: translateX(-50%); /* Centra horizontalmente el tooltip */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente negro */
+    color: #fff; /* Texto en blanco */
+    padding: 4px 8px; /* Espaciado interno en el tooltip */
+    border-radius: 4px; /* Bordes redondeados en el tooltip */
+    font-size: 0.8rem; /* Tamaño de fuente pequeño */
+    white-space: nowrap; /* Evita saltos de línea */
+    pointer-events: none; /* No captura eventos del mouse */
+    transition: opacity 0.2s ease-in-out; /* Transición suave para la aparición del tooltip */
+    white-space: pre-line; /* Permite saltos de línea predefinidos */
+    word-wrap: break-word; /* Permite romper palabras largas */
+    overflow-wrap: break-word; /* Alternativa para romper palabras largas */
+    width: 200px; /* Ancho fijo del tooltip */
+}
+.float-btn:hover .tooltip-text { /* Muestra el tooltip al pasar el cursor sobre el botón */
+    visibility: visible; /* Hace visible el tooltip */
+    opacity: 1; /* Aplica opacidad completa */
+}
+
+/* Títulos y párrafos */
+h1, p { /* Estilos generales para títulos (h1) y párrafos (p) */
+    text-align: center; /* Centra el texto */
+}
+
+/* Información del usuario */
+.user-info { /* Contenedor para la información del usuario */
+    display: flex; /* Organiza el contenido con flexbox */
+    align-items: center; /* Alinea verticalmente al centro */
+    padding: 16px; /* Espaciado interno para separar elementos */
+    background-color: #1D4D34; /* Fondo en verde oscuro */
+    font-size: 16px; /* Tamaño de fuente legible */
+    color: #E8F5E9; /* Texto en blanco suave */
+}
+.user-info i { /* Íconos dentro de la sección de información del usuario */
+    margin-right: 10px; /* Espacio a la derecha del ícono */
+    font-size: 24px; /* Tamaño grande para destacar el ícono */
+}
+
+/* Logo de la escuela */
+.logo-container { /* Contenedor para el logo */
+    text-align: left; /* Alinea el contenido a la izquierda */
+    margin-top: -115px; /* Ajuste negativo para posicionar el logo */
+    margin-left: 120px; /* Separación desde la izquierda */
+}
+.logo-container img { /* Estilos para la imagen del logo */
+    max-width: 70px; /* Ancho máximo para el logo */
+    height: auto; /* Ajusta la altura de forma proporcional */
+    display: inline-block; /* Permite que el logo se alinee con otros elementos en línea */
+}
+
+/* Contenedor de notificaciones */
+.notification-container { /* Contenedor para los íconos y elementos de notificaciones */
+    display: flex; /* Organiza los elementos en línea */
+    align-items: center; /* Alinea verticalmente al centro */
+    margin-right: 10px; /* Espacio a la derecha */
+    cursor: pointer; /* Indica que es interactivo */
+}
+.notification-container i { /* Íconos dentro del contenedor de notificaciones */
+    font-size: 20px; /* Tamaño adecuado para el ícono */
+    color: #007bff; /* Color azul para destacar */
+}
+.badge { /* Estilos para la insignia de notificaciones */
+    background-color: red; /* Fondo rojo para llamar la atención */
+    color: white; /* Texto en blanco */
+    border-radius: 50%; /* Forma circular */
+    padding: 2px 6px; /* Espaciado interno para definir el tamaño */
+    font-size: 12px; /* Tamaño de fuente pequeño */
+    margin-left: 4px; /* Pequeño margen a la izquierda */
+}
+
+/* Migas de pan (breadcrumbs) */
+.breadcrumb { /* Contenedor para la navegación de migas de pan */
+    font-size: 14px; /* Tamaño de fuente para la navegación */
+    padding: 8px 16px; /* Espaciado interno en el contenedor */
+    background-color: #bbcfe200; /* Fondo con transparencia */
+    border-radius: 4px; /* Bordes redondeados */
+    display: flex; /* Utiliza flexbox para organizar los elementos */
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: space-between; /* Distribuye el espacio entre elementos */
+    justify-content: flex-end; /* Alinea los elementos a la derecha (última regla aplicada) */
+    margin-bottom: 15px; /* Separación inferior */
+    max-width: 400px; /* Ancho máximo para la navegación */
+    margin-left: auto; /* Centra horizontalmente mediante márgenes automáticos */
+    margin-right: 10px; /* Pequeño margen derecho */
+}
+#clock { /* Estilos para el reloj dentro de las migas de pan */
+    font-weight: 100; /* Peso de fuente liviano */
+    margin-right: 10px; /* Separación a la derecha */
+    color: #272829d8; /* Color oscuro para el texto */
+    font-family: Arial, sans-serif; /* Fuente consistente con el resto del sitio */
+}
+.breadcrumb a { /* Enlaces dentro de las migas de pan */
+    color: #007bff; /* Color azul para los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 500; /* Peso de fuente medio */
+}
+.breadcrumb a:hover { /* Enlaces al hacer hover dentro de las migas */
+    text-decoration: underline; /* Subraya el enlace para indicar interacción */
+}
+.breadcrumb-separator { /* Separador entre elementos de las migas de pan */
+    margin: 0 8px; /* Espaciado horizontal para el separador */
+    color: #6c757d; /* Color gris para el separador */
+}
+.breadcrumb-current { /* Elemento actual en la navegación de migas */
+    color: #6c757d; /* Texto en gris para indicar inactividad */
+}
+
+/* Media queries */
+@media screen and (min-width: 600px) { /* Reglas para pantallas de al menos 600px de ancho */
+    .sidebar { /* Asegura que la sidebar se muestre en pantallas grandes */
+        transform: translateX(0); /* Sin desplazamiento horizontal */
+    }
+    .logo-container { /* Ajusta el contenedor del logo para pantallas mayores a 600px */
+        text-align: left; /* Alineación a la izquierda */
+        margin-top: -115px; /* Mantiene el posicionamiento vertical */
+        margin-left: 120px; /* Mantiene el margen izquierdo */
+    }
+    .logo-container img { /* Estilos para la imagen del logo en pantallas grandes */
+        max-width: 70px; /* Ancho máximo definido */
+        height: auto; /* Ajusta la altura proporcionalmente */
+        display: inline-block; /* Se muestra en línea */
+    }
+}
+
+/* Estilos de Libros recientes en Panel de Gestión */
+.ultimos-libros { /* Contenedor para la sección de libros recientes */
+    margin: 10px auto; /* Centrado horizontal y margen vertical */
+    max-width: 700px;  /* Ancho máximo para el contenedor */
+    background-color: #f9f9f9; /* Fondo claro para destacar el contenido */
+    padding: 15px; /* Espaciado interno uniforme */
+    border-radius: 8px; /* Bordes redondeados */
+}
+.ultimos-libros h2 { /* Título dentro de la sección de libros recientes */
+    text-align: center; /* Centra el título */
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+}
+
+/* Carrusel (Slick) */
+.carousel-libros { /* Contenedor del carrusel de libros */
+    margin: 0 auto; /* Centrado horizontal */
+}
+.slide-libro { /* Cada diapositiva del carrusel */
+    display: flex; /* Usa flexbox para alinear contenido */
+    flex-direction: column; /* Organiza el contenido en columna */
+    align-items: center; /* Centra el contenido horizontalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    text-align: center; /* Alinea el texto al centro */
+    padding: 10px; /* Espaciado interno uniforme */
+}
+.portada-libro { /* Estilos para la portada de cada libro */
+    display: block; /* Se muestra como bloque */
+    margin: 0 auto 10px; /* Centrado horizontal y margen inferior */
+    max-width: 150px; /* Ancho máximo para la imagen */
+    height: auto; /* Ajuste proporcional de la altura */
+    border-radius: 4px; /* Bordes redondeados en la imagen */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra sutil para dar profundidad */
+    width: 130px; /* Ancho fijo */
+    height: 150px; /* Alto fijo */
+}
+.info-libro strong { /* Texto destacado (negrita) en la información del libro */
+    font-size: 16px; /* Tamaño de fuente */
+}
+.info-libro em { /* Texto en cursiva para información secundaria del libro */
+    color: #555; /* Color gris para distinguirlo */
+}
+.slick-prev:before, 
+.slick-next:before { /* Estilos para los controles previos y siguientes del carrusel */
+    color: #333;  /* Color oscuro para los íconos de navegación */
+}
+.slick-dots li button:before { /* Estilos para los puntos de navegación del carrusel */
+    color: #aaa; /* Color gris claro para los puntos inactivos */
+}
+.slick-dots li.slick-active button:before { /* Punto activo del carrusel */
+    color: #333; /* Color gris oscuro para resaltar el punto activo */
+}
+.section-separator { /* Separador de secciones */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    border-top: 2px solid #cccccc81; /* Línea superior con color semitransparente */
+    margin: 50px 0; /* Espaciado vertical para separar secciones */
+    justify-content: center; /* Centrado en caso de contener elementos flex */
+}
+@media screen and (max-width: 600px) { /* Reglas para pantallas pequeñas (máximo 600px) */
+    .logo-container { /* Ajusta el contenedor del logo para pantallas pequeñas */
+        margin-top: 10px; /* Reduce el margen superior */
+        margin-left: 0; /* Elimina el margen izquierdo */
+        text-align: center; /* Centra el contenido */
+    }
+    .logo-container img { /* Ajusta la imagen del logo para pantallas pequeñas */
+        max-width: 50px; /* Reduce el ancho máximo */
+    }
+}
+
+.close-btn { /* Botón para cerrar elementos (como la sidebar o modales) */
+    position: relative; /* Posición relativa para ubicar tooltip si es necesario */
+    font-size: 30px; /* Tamaño grande para facilitar el clic */
+    background: none; /* Sin fondo para mantener la transparencia */
+    border: none; /* Sin borde */
+    color: rgb(61, 59, 59); /* Color gris oscuro para el botón */
+    cursor: pointer; /* Cursor de mano para indicar interactividad */
+}
+.close-btn .tooltip-text { /* Tooltip asociado al botón de cierre */
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0; /* Totalmente transparente inicialmente */
+    position: absolute; /* Posición absoluta respecto al botón */
+    left: 275%; /* Ubicado a la derecha (ajuste para evitar superposición) */
+    top: 5px; /* Posicionado 5px desde el top del botón */
+    transform: translateX(-50%); /* Centrado horizontalmente el tooltip */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente negro */
+    color: #fff; /* Texto en blanco */
+    padding: 4px 8px; /* Espaciado interno para legibilidad */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 0.8rem; /* Tamaño de fuente pequeño */
+    white-space: nowrap; /* Evita saltos de línea */
+    pointer-events: none; /* No interfiere con eventos del mouse */
+    transition: opacity 0.2s ease-in-out; /* Transición suave para la aparición */
+}
+.close-btn:hover .tooltip-text { /* Muestra el tooltip al pasar el cursor por el botón */
+    visibility: visible; /* Hace visible el tooltip */
+    opacity: 1; /* Aplica opacidad completa */
+}
+
+/* Overlay */
+#overlay { /* Capa superpuesta para bloquear la interacción con el fondo */
+    position: fixed; /* Posición fija en toda la pantalla */
+    top: 0;  /* Alineado al tope de la ventana */
+    left: 0; /* Alineado al borde izquierdo */
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    height: 100%; /* Ocupa toda la altura de la ventana */
+    z-index: 9999; /* Prioridad muy alta para superponer otros elementos */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    display: none; /* Oculto por defecto */
+}
+#spinner { /* Contenedor del spinner de carga */
+    position: absolute; /* Posicionado de manera absoluta */
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centrar el spinner */
+}
+.loader { /* Contenedor del loader animado */
+  width: 48px; /* Ancho fijo */
+  height: 48px; /* Alto fijo */
+  display: inline-block; /* Se muestra en línea */
+  position: relative; /* Posición relativa para elementos pseudo */
+}
+.loader::after,
+.loader::before { /* Pseudo-elementos para crear la animación del loader */
+  content: '';  /* Contenido vacío para generar el elemento */
+  box-sizing: border-box; /* Incluye bordes y padding en el cálculo del ancho */
+  width: 48px; /* Ancho fijo para el círculo */
+  height: 48px; /* Alto fijo para el círculo */
+  border-radius: 50%; /* Forma circular */
+  border: 2px solid #FFF; /* Borde blanco para el círculo */
+  position: absolute; /* Posicionados de forma absoluta dentro del loader */
+  left: 0; /* Alineados al borde izquierdo */
+  top: 0; /* Alineados al tope */
+  animation: animloader 2s linear infinite; /* Animación continua para el loader */
+}
+.loader::after { /* Configuración del pseudo-elemento ::after */
+  animation-delay: 1s; /* Retraso en la animación para alternar efectos */
+}
+@keyframes animloader { /* Definición de la animación del loader */
+  0% {
+    transform: scale(0); /* Inicia con escala 0 */
+    opacity: 1; /* Opacidad completa */
+  }
+  100% {
+    transform: scale(1); /* Escala hasta tamaño completo */
+    opacity: 0; /* Desaparece al finalizar la animación */
+  }
+}
+footer { /* Estilos para el pie de página */
+    text-align: center; /* Centra el contenido */
+    padding: 10px 0; /* Espaciado vertical */
+    margin-top: 20px; /* Separación superior del contenido anterior */
+    border-top: 1px solid #ddd; /* Línea superior sutil */
+    color: #777; /* Color de texto gris */
+    font-size: 0.9rem; /* Tamaño de fuente reducido */
+}
+
+/* ============================================= */
+/* ESTILOS PARA EL MODAL DE NOTIFICACIONES (ANTERIOR) */
+/* ============================================= */
+.modal { /* Contenedor principal del modal de notificaciones */
+    display: none;  /* Oculto por defecto */
+    position: fixed; /* Posición fija para superponer sobre el contenido */
+    z-index: 2000; /* Prioridad alta en la superposición */
+    left: 0; /* Alineado al borde izquierdo */
+    top: 0; /* Alineado al tope */
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    height: 100%; /* Ocupa toda la altura de la ventana */
+    overflow-y: auto; /* Permite scroll vertical si el contenido lo requiere */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente negro para destacar el modal */
+    padding: 20px; /* Espaciado interno alrededor del contenido del modal */
+}
+.modal-content { /* Contenedor interno del contenido del modal */
+    background-color: #fff; /* Fondo blanco para el contenido */
+    margin: 50px auto; /* Centrado horizontal y margen superior/inferior */
+    padding: 20px 30px; /* Espaciado interno para dar comodidad visual */
+    border-radius: 8px; /* Bordes redondeados para un aspecto suave */
+    width: 90%; /* Ancho relativo para adaptarse a pantallas pequeñas */
+    max-width: 600px; /* Ancho máximo para pantallas grandes */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra sutil para dar profundidad */
+    position: relative; /* Posición relativa para ubicar elementos internos (como el botón de cierre) */
+}
+.close-notifications { /* Botón para cerrar el modal de notificaciones */
+    color: #888; /* Color gris para el ícono de cierre */
+    position: absolute; /* Posicionado de manera absoluta dentro del modal */
+    top: 10px; /* A 10px desde el tope del modal */
+    right: 15px; /* A 15px desde el borde derecho */
+    font-size: 28px; /* Tamaño de fuente grande para visibilidad */
+    font-weight: bold; /* Negrita para destacar el botón */
+    border: none; /* Sin borde */
+    background: transparent; /* Fondo transparente */
+    cursor: pointer; /* Cursor de mano para indicar interactividad */
+    transition: color 0.3s ease; /* Transición suave al cambiar de color */
+}
+.close-notifications:hover,
+.close-notifications:focus { /* Efecto hover y focus en el botón de cierre */
+    color: #333; /* Cambia a un gris más oscuro para resaltar */
+}
+.modal-content h3 { /* Título dentro del modal */
+    margin-top: 0; /* Sin margen superior para ajustar el espacio */
+    font-size: 24px; /* Tamaño de fuente destacado para el título */
+    color: #333; /* Color de texto oscuro */
+    border-bottom: 1px solid #eaeaea; /* Línea inferior para separar el título del contenido */
+    padding-bottom: 10px; /* Espaciado inferior para dar respiro */
+    margin-bottom: 20px; /* Separación del contenido inferior */
+}
+.notifications-actions { /* Contenedor para acciones (botones) en el modal */
+    text-align: right; /* Alinea los botones a la derecha */
+    margin-bottom: 15px; /* Espaciado inferior para separar del contenido */
+}
+.notifications-actions button { /* Botones de acción en el modal */
+    background-color: #023f81; /* Fondo azul oscuro */
+    color: #e7e7e7; /* Texto en un tono claro */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes suavizados */
+    padding: 3px 12px; /* Espaciado interno adecuado */
+    font-size: 12px; /* Tamaño de fuente pequeño */
+    cursor: pointer; /* Cursor de mano para indicar interactividad */
+    margin-left: 8px; /* Espacio a la izquierda entre botones */
+    transition: background-color 0.3s ease; /* Transición suave en el cambio de fondo */
+}
+.notifications-actions button:hover { /* Efecto hover en botones de acciones */
+    background-color: #0056b3; /* Fondo azul un poco más claro al hacer hover */
+}
+.notification-item { /* Cada ítem de notificación */
+    background-color: #f9f9f9; /* Fondo muy claro para diferenciar */
+    padding: 12px 15px; /* Espaciado interno para contenido */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Separación entre ítems */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Sombra ligera para dar profundidad */
+}
+.notification-item p { /* Párrafos dentro de cada notificación */
+    margin: 0 0 5px 0; /* Márgenes para separar el texto sin exceso */
+    font-size: 16px; /* Tamaño de fuente legible */
+    color: #444; /* Color de texto gris oscuro */
+}
+.notification-item small { /* Texto en pequeño para detalles en la notificación */
+    color: #888; /* Color gris para indicar información secundaria */
+    font-size: 12px; /* Tamaño de fuente pequeño */
+}
+.mark-read-btn { /* Botón para marcar notificaciones como leídas */
+    background-color: #28a745; /* Fondo verde para indicar acción positiva */
+    color: #fff; /* Texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes suavizados */
+    padding: 4px 8px; /* Espaciado interno reducido */
+    font-size: 12px; /* Tamaño de fuente pequeño */
+    cursor: pointer; /* Cursor de mano para interactividad */
+    transition: background-color 0.3s ease; /* Transición suave al interactuar */
+}
+.mark-read-btn:hover { /* Efecto hover para el botón de marcar como leído */
+    background-color: #1e7e34; /* Fondo verde más oscuro al hacer hover */
+}
+.notification-item + hr { /* Línea separadora entre notificaciones consecutivas */
+    border: none; /* Sin borde lateral */
+    border-top: 1px solid #eaeaea; /* Línea superior sutil */
+    margin: 10px 0; /* Espaciado vertical para separar ítems */
+}
+#notificationsList { /* Contenedor para la lista de notificaciones */
+    max-height: 400px; /* Altura máxima para evitar desbordamientos */
+    overflow-y: auto; /* Permite scroll vertical si la lista es extensa */
+    padding-right: 10px; /* Espacio interno a la derecha */
+}
+
+/* ============================================= */
+/* ESTILOS PARA EL NUEVO DROPDOWN DE NOTIFICACIONES */
+/* ============================================= */
+.notification-dropdown { /* Contenedor para el dropdown de notificaciones */
+    position: absolute; /* Posicionado de forma absoluta */
+    top: 60px; /* Ubicado 60px desde el top (ajustable según el layout) */
+    right: 150px; /* Ubicado 150px desde la derecha (ajustable según el layout) */
+    width: 320px; /* Ancho fijo para el dropdown */
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra para dar profundidad */
+    display: none; /* Oculto por defecto */
+    flex-direction: column; /* Organiza el contenido en columna cuando se muestra */
+    z-index: 9999; /* Prioridad muy alta para superponer sobre otros elementos */
+}
+.notification-dropdown.active { /* Dropdown activo o visible */
+    display: flex; /* Se muestra utilizando flexbox */
+}
+.notification-dropdown .dropdown-header { /* Encabezado del dropdown */
+    padding: 10px 15px; /* Espaciado interno en el encabezado */
+    border-bottom: 1px solid #ddd; /* Línea inferior para separar el encabezado */
+    font-weight: bold; /* Texto en negrita para resaltar */
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    display: flex; /* Organiza los elementos del encabezado en línea */
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: space-between; /* Distribuye espacio entre elementos */
+}
+.dropdown-header h3 { /* Título dentro del encabezado del dropdown */
+    margin: 0 auto; /* Centra el título horizontalmente */
+    text-align: center; /* Centra el texto */
+}
+
+.notifications-actions { /* Contenedor para las acciones dentro del dropdown */
+    display: flex; /* Organiza los botones en línea */
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    gap: 8px; /* Espacio entre cada botón */
+    padding: 8px 15px; /* Espaciado interno */
+    border-bottom: 1px solid #ddd; /* Línea inferior para separar del contenido */
+}
+.notification-dropdown .dropdown-body { /* Contenedor del cuerpo del dropdown */
+    max-height: 300px; /* Altura máxima para controlar el scroll */
+    overflow-y: auto; /* Permite scroll vertical si hay muchas notificaciones */
+    padding: 10px; /* Espaciado interno */
+}
+.notification-dropdown .dropdown-footer { /* Pie del dropdown */
+    padding: 10px 15px; /* Espaciado interno */
+    border-top: 1px solid #ddd; /* Línea superior para separar el pie del contenido */
+    text-align: center; /* Centra el texto del pie */
+}
+
+/* Ajusta cada notificación dentro del dropdown */
+.notification-dropdown .notification-item { /* Ítem individual en el dropdown */
+    background-color: #f9f9f9; /* Fondo claro para el ítem */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Separación entre ítems */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Sombra muy sutil para dar profundidad */
+    
+    /* Ajustes para centrar fecha/hora y botón */
+    text-align: center; /* Centra el contenido textual del ítem */
+}
+.notification-dropdown .notification-item p { /* Párrafo dentro del ítem del dropdown */
+    margin: 0 0 5px 0; /* Márgenes para separar el texto sin exceso */
+    font-size: 14px; /* Tamaño de fuente ligeramente menor */
+    color: #444; /* Color de texto gris oscuro */
+}
+.notification-dropdown .notification-item small { /* Información adicional en el ítem (fecha/hora) */
+    display: block;       /* Se muestra en línea completa */
+    margin-bottom: 5px;   /* Espaciado inferior para separar del botón */
+    color: #888;          /* Color gris para indicar información secundaria */
+    font-size: 12px;      /* Tamaño de fuente pequeño */
+    text-align: center;   /* Centra el texto */
+}
+.notification-dropdown .mark-read-btn { /* Botón para marcar la notificación como leída dentro del dropdown */
+    background-color: #28a745; /* Fondo verde para acción positiva */
+    color: #fff; /* Texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 4px 8px; /* Espaciado interno */
+    font-size: 12px; /* Tamaño de fuente pequeño */
+    cursor: pointer; /* Cursor de mano para indicar interactividad */
+    transition: background-color 0.3s ease; /* Transición suave en el cambio de color */
+    
+    /* Centra el botón */
+    display: block; /* Se muestra como bloque para centrado */
+    margin: 0 auto; /* Centra horizontalmente */
+    margin-top: 5px; /* Margen superior para separarlo del contenido anterior */
+}
+.notification-dropdown .mark-read-btn:hover { /* Efecto hover para el botón dentro del dropdown */
+    background-color: #1e7e34; /* Fondo verde más oscuro al hacer hover */
+}
+
+/* Scrollbar interno del dropdown */
+.notification-dropdown .dropdown-body::-webkit-scrollbar { /* Personaliza la barra de scroll del cuerpo del dropdown */
+    width: 6px; /* Ancho de la barra de desplazamiento */
+}
+.notification-dropdown .dropdown-body::-webkit-scrollbar-thumb { /* Estilo para la "thumb" del scroll en el dropdown */
+    background-color: #ccc; /* Color gris para la thumb */
+    border-radius: 3px; /* Bordes redondeados */
+}

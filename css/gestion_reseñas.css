@@ -1,0 +1,620 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif; /* Define la fuente principal */
+    background-color: #f9f9f9; /* Establece un fondo claro */
+    margin: 0; /* Elimina márgenes predeterminados */
+    padding: 0; /* Elimina padding predeterminado */
+}
+
+.container {
+    width: 80%; /* Ancho del contenedor en porcentaje */
+    margin: 0 auto; /* Centra horizontalmente el contenedor */
+    padding: 20px; /* Espacio interno para el contenido */
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 30px; /* Espacio superior */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+/* Encabezado */
+header {
+    text-align: center; /* Centra el contenido del encabezado */
+    margin-bottom: 20px; /* Separa el encabezado del resto */
+}
+
+header h2 {
+    font-size: 2.5rem; /* Tamaño destacado para el título */
+    margin: 0; /* Sin márgenes para mayor control */
+    color: #333; /* Color de texto oscuro */
+}
+
+/* Barra superior */
+.top-bar {
+    display: flex; /* Usa Flexbox para distribuir elementos */
+    justify-content: space-between; /* Espacia los elementos a los extremos */
+    align-items: center; /* Alinea verticalmente al centro */
+    margin-bottom: 20px; /* Margen inferior */
+    flex-wrap: wrap; /* Permite ajustar elementos en varias líneas */
+}
+
+.total-registros {
+    background-color: #024894; /* Fondo azul intenso */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor */
+    display: flex; /* Flexbox para alinear su contenido */
+    align-items: center; /* Centrado vertical en su interior */
+    box-sizing: border-box; /* Incluye padding y borde en el cálculo */
+    margin-bottom: 10px; /* Espacio inferior */
+    width: auto; /* Ancho según el contenido */
+}
+
+.total-registros i {
+    margin-right: 10px; /* Separa el ícono del texto */
+}
+
+.filtros {
+    display: flex; /* Organiza los filtros en línea */
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-wrap: wrap; /* Permite que se distribuyan en varias líneas */
+    gap: 10px; /* Espacio uniforme entre elementos */
+}
+
+.filtros label {
+    margin-right: 10px; /* Separa la etiqueta del siguiente elemento */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    color: #333; /* Color de texto oscuro */
+}
+
+.filtros label i {
+    margin-right: 5px; /* Espacio entre ícono y texto de la etiqueta */
+}
+
+.filtros select {
+    padding: 5px 10px; /* Espaciado interno del select */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris claro */
+}
+
+/* Barra de búsqueda */
+#searchBar {
+    display: block; /* Se muestra como bloque */
+    width: 60%; /* Ancho relativo para el campo de búsqueda */
+    padding: 10px; /* Espaciado interno */
+    margin: 0 auto 20px auto; /* Centrado horizontal y margen inferior */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 20px; /* Bordes muy redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+/* Acciones masivas */
+.acciones-masivas {
+    text-align: right; /* Alinea el contenido a la derecha */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.acciones-masivas .btn-masiva {
+    padding: 5px 10px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor pointer para interactividad */
+    margin-left: 5px; /* Espacio entre botones */
+    font-size: 0.9rem; /* Fuente ligeramente reducida */
+    transition: background-color 0.3s; /* Transición suave de color */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones adicionales */
+}
+
+.btn-masiva.eliminar-masivo {
+    background-color: #c22535; /* Fondo rojo para eliminación */
+    color: #fff; /* Texto blanco */
+}
+
+.btn-masiva.down-lectura {
+    background-color: #024894; /* Fondo azul para "down lectura" */
+    color: #fff; /* Texto blanco */
+}
+
+.btn-masiva.print-lectura {
+    background-color: #024894; /* Fondo azul para "print lectura" */
+    color: #fff; /* Texto blanco */
+}
+
+.btn-masiva:hover {
+    opacity: 0.9; /* Ligeramente transparente al pasar el mouse */
+}
+
+/* Cambios de color al pasar el mouse según acción */
+.btn-masivam, .btn-masiva.down-lectura:hover {
+    background-color: #0056b3;
+}
+
+.btn-masivam, .btn-masiva.print-lectura:hover {
+    background-color: #0056b3;
+}
+
+.btn-masivam, .btn-masiva.eliminar-masivo:hover {
+    background-color: #b30000;
+}
+
+/* Tabla de reseñas */
+.reservas-table {
+    width: 100%; /* Ocupa todo el ancho */
+    border-collapse: collapse; /* Elimina espacios entre celdas */
+    margin: 10px 0; /* Márgenes verticales */
+    table-layout: fixed; /* Ancho fijo para columnas */
+}
+
+.reservas-table th, .reservas-table td {
+    border: 1px solid #ddd; /* Borde gris claro */
+    padding: 10px; /* Espaciado interno en celdas */
+    text-align: left; /* Alineación predeterminada a la izquierda */
+    white-space: nowrap; /* No permite saltos de línea */
+    overflow: hidden; /* Oculta contenido desbordado */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos en texto largo */
+}
+
+.reservas-table th {
+    background-color: #f8f8f8; /* Fondo para encabezados */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centra el texto en el encabezado */
+}
+
+.reservas-table td {
+    background-color: #fff; /* Fondo blanco para celdas */
+    text-align: center; /* Centra el contenido */
+}
+
+.reservas-table tr:hover {
+    background-color: #f1f1f1; /* Cambia fondo al pasar el mouse sobre la fila */
+}
+
+/* Botones de acciones en la tabla */
+.reservas-table .btn {
+    padding: 5px 10px; /* Espaciado interno para botones */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor pointer */
+    margin: 2px; /* Pequeño margen entre botones */
+    font-size: 0.9rem; /* Fuente ajustada */
+    transition: background-color 0.3s; /* Transición para cambio de color */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+.eliminar {
+    background-color: #c22535; /* Fondo rojo para botón eliminar */
+    color: #fff; /* Texto blanco */
+}
+
+.eliminar:hover {
+    background-color: #b30000; /* Fondo más oscuro al pasar el mouse */
+}
+
+.acciones button {
+    min-width: 100px; /* Ancho mínimo para el botón (personalizable) */
+}
+
+/* Botón Ver */
+.btn.ver-reseña {
+    background-color: #3D3BF3; /* Azul claro para el botón ver */
+    color: white; /* Texto blanco */
+}
+
+.btn.ver-reseña:hover {
+    background-color: #22177A; /* Oscurece al pasar el mouse */
+}
+
+/* Paginación */
+.pagination {
+    display: flex; /* Flexbox para centrar la paginación */
+    justify-content: center; /* Centrado horizontal */
+    margin-top: 20px; /* Espacio superior */
+}
+
+/* Lista de paginación estilo círculos */
+.pagination-list {
+    list-style: none; /* Sin viñetas */
+    display: flex; /* Organiza los elementos en línea */
+    align-items: center; /* Centra verticalmente */
+    gap: 3px; /* Espacio reducido entre elementos */
+    padding: 0; /* Sin padding */
+    margin: 0; /* Sin margen */
+}
+
+.pagination-list li a {
+    display: inline-block; /* Permite establecer dimensiones fijas */
+    width: 35px; /* Ancho reducido */
+    height: 35px; /* Altura reducida */
+    line-height: 35px; /* Centrado vertical del texto */
+    text-align: center; /* Centrado horizontal */
+    border-radius: 50%; /* Forma circular */
+    background-color: #ddd; /* Fondo gris claro */
+    color: #333; /* Texto gris oscuro */
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s, color 0.3s; /* Transición en color */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 14px; /* Tamaño de fuente reducido */
+}
+
+.pagination-list li a.active {
+    background-color: #017bff; /* Fondo azul para página activa */
+    color: #fff; /* Texto blanco en página activa */
+}
+
+.pagination-list li a:hover {
+    background-color: #0056b3; /* Fondo azul al pasar el mouse */
+    color: #fff; /* Texto blanco al pasar el mouse */
+}
+
+.pagination-list li a.disabled {
+    cursor: not-allowed; /* Cursor de inactividad */
+    opacity: 0.5; /* Mayor transparencia */
+}
+
+.pagination-list li {
+    display: inline-block; /* Muestra elementos en línea */
+}
+
+.pagination-list li:nth-child(odd) {
+    margin-right: 2px; /* Margen reducido entre elementos impares */
+}
+
+/* Pie de página */
+footer {
+    text-align: center; /* Centrado del texto */
+    padding: 10px 0; /* Espaciado vertical */
+    margin-top: 20px; /* Separación superior */
+    border-top: 1px solid #ddd; /* Línea superior sutil */
+    color: #777; /* Texto en gris */
+    font-size: 0.9rem; /* Fuente un poco más pequeña */
+}
+
+/* Media Queries para diseño responsivo */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Contenedor ocupa todo el ancho */
+        margin-top: 10px; /* Menor margen superior */
+        padding: 10px; /* Menor padding */
+    }
+
+    .top-bar {
+        flex-direction: column; /* Organiza elementos en columna */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+
+    .total-registros {
+        margin-bottom: 10px; /* Menor margen inferior */
+        width: auto; /* Ajuste automático del ancho */
+    }
+
+    .acciones-masivas {
+        text-align: left; /* Alinea acciones a la izquierda */
+        flex-direction: column; /* Organiza en columna */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+
+    /* Diseño tipo "card" para registros en móviles */
+    .reservas-table {
+        border: 0; /* Sin borde para simplificar */
+    }
+
+    .reservas-table thead {
+        display: none; /* Oculta encabezados */
+    }
+
+    .reservas-table tr {
+        display: block; /* Cada fila como bloque */
+        margin-bottom: 15px; /* Espacio entre filas */
+        border: 1px solid #ddd; /* Borde sutil */
+        border-radius: 10px; /* Bordes redondeados */
+        padding: 10px; /* Espaciado interno */
+        background-color: #fff; /* Fondo blanco */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    .reservas-table td {
+        display: block; /* Cada celda en bloque */
+        padding: 8px 0; /* Espaciado vertical */
+        border: none; /* Sin borde */
+        text-align: left; /* Alinea el texto a la izquierda */
+        white-space: normal; /* Permite saltos de línea */
+    }
+
+    .reservas-table td::before {
+        content: attr(data-label); /* Muestra etiqueta antes del contenido */
+        font-weight: bold; /* Texto en negrita para la etiqueta */
+        margin-right: 10px; /* Espacio a la derecha */
+        display: inline-block; /* Se muestra en línea */
+    }
+
+    .reservas-table td:last-child {
+        padding-bottom: 0; /* Sin padding inferior en la última celda */
+    }
+
+    .pagination {
+        flex-direction: row; /* Pagina en fila */
+        justify-content: center; /* Centrado horizontal */
+    }
+
+    .pagination a {
+        margin-bottom: 0; /* Sin margen inferior */
+    }
+
+    #searchBar {
+        max-width: 100%; /* Campo de búsqueda ocupa todo el ancho */
+        margin-bottom: 15px; /* Margen inferior mayor */
+    }
+}
+
+/* Estilos generales del modal */
+.modal-content {
+    background-color: #fff; /* Fondo blanco para el modal */
+    margin: 10% auto; /* Centrado vertical y horizontal */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 80%; /* Ancho relativo */
+    max-width: 700px; /* Ancho máximo */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para destacar */
+    position: relative; /* Permite posicionar el botón de cierre */
+    font-family: Arial, sans-serif; /* Fuente consistente */
+}
+
+/* Título del modal */
+.modal-title {
+    font-size: 1.8rem; /* Tamaño de fuente destacado */
+    color: #333; /* Color oscuro */
+    margin-bottom: 20px; /* Espacio inferior */
+    text-align: center; /* Centrado */
+}
+
+/* Botón de cierre */
+.close {
+    color: #333; /* Color de texto */
+    position: absolute; /* Posicionado de forma absoluta */
+    top: 10px; /* A 10px del borde superior */
+    right: 15px; /* A 15px del borde derecho */
+    font-size: 24px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    cursor: pointer; /* Cursor pointer */
+}
+
+.close:hover,
+.close:focus {
+    color: #ff0000; /* Cambia a rojo al pasar el mouse */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cursor pointer */
+}
+
+/* Cuerpo del modal */
+.modal-body {
+    display: flex; /* Uso de Flexbox */
+    flex-direction: column; /* Organiza en columna */
+    gap: 15px; /* Espacio entre elementos */
+}
+
+/* Información básica en el modal */
+.modal-info p {
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    color: #333; /* Color oscuro */
+    display: flex; /* Organiza en línea */
+    align-items: center; /* Centrado vertical */
+}
+
+.modal-info i {
+    margin-right: 10px; /* Espacio a la derecha del ícono */
+    color: #007bff; /* Color azul para el ícono */
+}
+
+/* Mensaje del contacto (reseña completa) */
+.modal-message {
+    font-size: 1rem; /* Fuente estándar */
+    background-color: #f9f9f9; /* Fondo claro */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #ddd; /* Borde sutil */
+    max-height: 200px; /* Altura máxima con scroll */
+    overflow-y: auto; /* Habilita scroll vertical */
+    white-space: pre-wrap; /* Mantiene saltos de línea */
+    word-wrap: break-word; /* Rompe palabras largas */
+}
+
+#modalReseñaTexto {
+    font-size: 1rem; /* Fuente estándar */
+    line-height: 1.5; /* Altura de línea para legibilidad */
+    position: relative; /* Posición relativa para ajustes */
+    top: -70px; /* Ajuste vertical */
+}
+
+.modal-message p {
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin: 0; /* Sin márgenes */
+    position: relative; /* Posición relativa */
+    top: -40px; /* Ajuste vertical */
+}
+
+/* Para móviles en el modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%; /* Ancho casi completo */
+        margin-top: 10px; /* Menor margen superior */
+        padding: 15px; /* Menor padding */
+    }
+
+    .reservas-table {
+        border: 0; /* Sin borde para simplificar */
+    }
+
+    .reservas-table thead {
+        display: none; /* Oculta encabezados */
+    }
+
+    .reservas-table tr {
+        display: flex; /* Fila en flex */
+        flex-direction: column; /* Organiza en columna */
+        align-items: stretch; /* Elementos estirados a lo ancho */
+        margin-bottom: 15px; /* Espacio entre filas */
+        background-color: #fff; /* Fondo blanco */
+        border: 1px solid #ddd; /* Borde sutil */
+        border-radius: 10px; /* Bordes redondeados */
+        padding: 15px; /* Espaciado interno */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }
+
+    .modal-title {
+        font-size: 1.5rem; /* Título un poco más pequeño */
+    }
+
+    .modal-body {
+        flex-direction: column; /* Asegura columnas en el cuerpo */
+    }
+
+    .reservas-table tr:hover {
+        background-color: #fff; /* Sin cambio de fondo al pasar el mouse */
+    }
+}
+
+/* Estilos del modal (fondo y posicionamiento general) */
+.modal {
+    display: none;  /* Oculto por defecto */
+    position: fixed;  /* Posición fija en la ventana */
+    z-index: 1000;  /* Se muestra sobre otros elementos */
+    left: 0;  /* Al inicio horizontal */
+    top: 0;  /* Al inicio vertical */
+    width: 100%;  /* Ocupa todo el ancho */
+    height: 100%;  /* Ocupa toda la altura */
+    background-color: rgba(0, 0, 0, 0.452); /* Fondo semitransparente para oscurecer */
+}
+
+.modal-content {
+    background-color: #fff; /* Fondo blanco */
+    margin: 10% auto; /* Centrado vertical y horizontal */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 80%;  /* Ancho relativo */
+    max-width: 700px; /* Ancho máximo */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para destacar */
+    position: relative; /* Permite posicionar el botón de cierre */
+}
+
+.close {
+    color: #333; /* Color oscuro */
+    position: absolute; /* Posicionado en el modal */
+    top: 10px; /* Separado del borde superior */
+    right: 15px; /* Separado del borde derecho */
+    font-size: 24px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    cursor: pointer; /* Cursor pointer */
+}
+
+.close:hover,
+.close:focus {
+    color: #ff0000; /* Rojo al pasar el mouse */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cursor pointer */
+}
+
+h3 {
+    margin-top: 0; /* Sin margen superior */
+    font-size: 24px; /* Tamaño de fuente destacado */
+    color: #333; /* Color oscuro */
+}
+
+/* Estilos para la tabla dentro del modal */
+.modal-table {
+    width: 100%; /* Ocupa todo el ancho del modal */
+    border-collapse: collapse; /* Sin separación entre celdas */
+    margin-top: 15px; /* Espacio superior */
+}
+
+.modal-table th, .modal-table td {
+    padding: 8px; /* Espaciado interno */
+    text-align: left; /* Texto alineado a la izquierda */
+    border-bottom: 1px solid #ddd; /* Línea divisoria sutil */
+}
+
+.modal-table th {
+    background-color: #f8f8f8; /* Fondo para encabezados */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Botones más pequeños */
+.btn {
+    padding: 6px 8px; /* Espaciado interno reducido */
+    background-color: #007bff; /* Fondo azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor pointer */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    font-size: 5.875rem; /* Tamaño de fuente (verificar si es el deseado) */
+    margin: 1px; /* Pequeño margen */
+}
+
+.btn.eliminar-reseña {
+    background-color: #dc3545; /* Fondo rojo para eliminar reseña */
+}
+
+.btn.eliminar-reseña:hover {
+    background-color: #c82333; /* Oscurece al pasar el mouse */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Cambia a azul oscuro al pasar el mouse */
+}
+
+.btn.eliminar {
+    background-color: #dc3545; /* Fondo rojo para botón eliminar */
+}
+
+.btn.eliminar:hover {
+    background-color: #c82333; /* Oscurece al pasar el mouse */
+}
+
+/* Botones de acciones en vertical */
+.acciones {
+    display: flex; /* Uso de Flexbox */
+    flex-direction: column; /* Organiza los botones en columna */
+    gap: 10px; /* Espacio entre botones */
+    align-items: center; /* Centra los botones */
+}
+
+.acciones button {
+    flex: 1; /* Ocupa el espacio disponible */
+    white-space: nowrap; /* No permite que el texto se divida */
+}
+
+/* Ajuste de ancho para columnas específicas de la tabla */
+.reservas-table th:nth-child(1), .reservas-table td:nth-child(1) {
+    width: 40px;
+    text-align: center;
+}
+.reservas-table th:nth-child(2), .reservas-table td:nth-child(2) {
+    width: 50px;
+    text-align: center;
+}
+.reservas-table th:nth-child(5), .reservas-table td:nth-child(5) {
+    width: 70px;
+    text-align: center;
+}
+.reservas-table th:nth-child(7), .reservas-table td:nth-child(7) {
+    width: 90px;
+    text-align: center;
+}
+.reservas-table th:nth-child(3), .reservas-table td:nth-child(3) {
+    width: 80px;
+    text-align: center;
+}
+
+/* Efecto Pulse para animar elementos al pasar el mouse */
+.grow {
+    display: inline-block; /* Permite el escalado sin romper el flujo */
+    transition: transform 0.3s ease-in-out;  /* Transición suave para la transformación */
+}
+.grow:hover {
+    transform: scale(1.1); /* Aumenta de tamaño al pasar el mouse */
+}

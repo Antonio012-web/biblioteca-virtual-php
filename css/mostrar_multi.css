@@ -1,0 +1,273 @@
+/* Estilos para las tarjetas multimedia */
+.card {
+    flex-basis: 15%;  /* Establece el ancho base de la tarjeta en pantallas grandes */
+    padding: 10px;     /* Define el espacio interno dentro de la tarjeta */
+    margin: 5px;       /* Espacio exterior entre cada tarjeta */
+    background-color: #f4f4f4; /* Color de fondo claro de la tarjeta */
+    border: 2px solid #ccc;    /* Borde gris de 2px alrededor de la tarjeta */
+    border-radius: 8px;        /* Bordes redondeados para un efecto suave */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+    text-align: center;        /* Centra el texto dentro de la tarjeta */
+    transition: transform 1.3s ease, box-shadow 1.3s ease; /* Suaviza la transición en transformaciones y sombras */
+    cursor: pointer;           /* Cambia el cursor a puntero indicando interactividad */
+    overflow: hidden;          /* Oculta el contenido que se desborda de la tarjeta */
+}
+
+/* Efecto de zoom suave al hacer hover sobre la tarjeta */
+.card:hover {
+    transform: scale(1.05); /* Amplía la tarjeta un 5% al pasar el cursor */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Intensifica la sombra para destacar la tarjeta */
+}
+
+/* Transiciones para los contenidos de la tarjeta */
+.card img, .card video, .card audio, .card h3, .card p {
+    transition: transform 0.5s ease; /* Aplica una transición suave a transformaciones de elementos internos */
+}
+
+/* Efecto de zoom sobre los contenidos de la tarjeta al hacer hover */
+.card:hover img, .card:hover video, .card:hover audio, .card:hover h3, .card:hover p {
+    transform: scale(1.1); /* Amplía los elementos internos un 10% al pasar el cursor sobre la tarjeta */
+}
+
+/* Ajustes de imagen/video/audio dentro de las tarjetas */
+.card img, .card video, .card audio {
+    max-width: 100%; /* Limita el ancho máximo al 100% del contenedor */
+    height: auto;    /* Mantiene la proporción original de altura */
+    margin-top: 10px;/* Agrega espacio superior para separar del contenido previo */
+}
+
+/* Contenedor de multimedia: 5 columnas por fila */
+.multimedia-row {
+    display: flex;           /* Utiliza flexbox para distribuir las tarjetas */
+    flex-wrap: wrap;         /* Permite que las tarjetas se ajusten a múltiples líneas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 10px;               /* Define un espacio fijo entre las tarjetas */
+}
+
+/* Asegura que las tarjetas mantengan un margen adecuado entre sí */
+.multimedia-row .card {
+    margin-bottom: 20px; /* Separa las filas de tarjetas con un margen inferior */
+}
+
+/* =================== MEDIA QUERIES PARA RESPONSIVE =================== */
+
+/* Para pantallas un poco más pequeñas que 1200px */
+@media (max-width: 1200px) {
+    .card {
+        flex-basis: 20%; /* Aumenta el ancho base para adaptarse a pantallas medianas */
+    }
+}
+
+/* Para pantallas tipo tablet horizontal (max 992px) */
+@media (max-width: 992px) {
+    .card {
+        flex-basis: 30%; /* Ajusta el ancho base para tablets en posición horizontal */
+    }
+}
+
+/* Para pantallas tipo tablet vertical (max 768px) */
+@media (max-width: 768px) {
+    .card {
+        flex-basis: 45%; /* Aumenta el ancho base en tablets verticales para mayor visibilidad */
+    }
+}
+
+/* Para pantallas muy pequeñas, tipo smartphone (max 576px) */
+@media (max-width: 576px) {
+    .card {
+        flex-basis: 90%; /* Ocupa casi todo el ancho en smartphones para optimizar el espacio */
+    }
+}
+
+/* =================== BOTONES =================== */
+.btn-ver-mas, .btn-mostrar-menos {
+    display: block;           /* Muestra el botón como bloque para ocupar toda la línea */
+    margin: 20px auto;        /* Centra el botón con márgenes verticales y automáticos laterales */
+    padding: 10px 20px;       /* Espacio interno del botón en vertical y horizontal */
+    background-color: #007BFF;/* Color de fondo azul */
+    color: white;             /* Color de texto blanco */
+    border: none;             /* Elimina el borde predeterminado */
+    border-radius: 5px;       /* Bordes redondeados para suavizar la apariencia */
+    cursor: pointer;          /* Cursor de puntero al pasar el mouse */
+}
+
+.btn-ver-mas:hover, .btn-mostrar-menos:hover {
+    background-color: #0056b3; /* Cambia el fondo a un azul más oscuro al hacer hover */
+}
+
+/* =================== PAGINACIÓN =================== */
+.pagination button {
+    margin: 5px;                         /* Espacio alrededor de cada botón de paginación */
+    padding: 10px 15px;                  /* Espacio interno para hacer clic cómodamente */
+    border: none;                        /* Sin borde para un diseño limpio */
+    background-color: #007BFF;           /* Fondo azul predeterminado */
+    color: white;                        /* Texto en blanco */
+    cursor: pointer;                     /* Indica interactividad con cursor puntero */
+    border-radius: 5px;                  /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color de fondo */
+}
+
+.pagination button:disabled {
+    background-color: #b3d7ff; /* Color más claro para botones deshabilitados */
+    cursor: not-allowed;       /* Cambia el cursor para indicar que no se puede interactuar */
+}
+
+.pagination span {
+    margin: 0 10px;   /* Espacio horizontal entre elementos de paginación */
+    font-size: 16px;  /* Tamaño de fuente adecuado para la legibilidad */
+}
+
+/* =================== MODAL =================== */
+.modal {
+    display: none;                         /* Oculta el modal por defecto */
+    position: fixed;                       /* Fija la posición en la ventana del navegador */
+    z-index: 1000;                         /* Asegura que el modal se muestre sobre otros elementos */
+    left: 0;                               /* Posición desde el borde izquierdo */
+    top: 0;                                /* Posición desde el borde superior */
+    width: 100%;                           /* Ancho completo de la ventana */
+    height: 100%;                          /* Altura completa de la ventana */
+    overflow: auto;                        /* Permite el scroll si el contenido es mayor a la pantalla */
+    background-color: rgba(0, 0, 0, 0.5);    /* Fondo semitransparente para efecto overlay */
+    justify-content: center;               /* Centra el contenido horizontalmente */
+    align-items: center;                   /* Centra el contenido verticalmente */
+}
+
+.modal-content {
+    background-color: #fff;                /* Fondo blanco para el contenido del modal */
+    margin: auto;                          /* Centra el modal en la pantalla */
+    padding: 20px;                         /* Espacio interno para el contenido */
+    border: 1px solid #888;                /* Borde gris para delimitar el modal */
+    width: 80%;                           /* Ancho relativo del modal */
+    max-width: 800px;                     /* Ancho máximo para limitar su expansión */
+    position: relative;                   /* Posicionamiento relativo para elementos internos */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto de profundidad */
+    border-radius: 10px;                  /* Bordes redondeados para suavizar la apariencia */
+}
+
+.modal-content h2 {
+    margin-top: 0;         /* Elimina el margen superior para un encabezado alineado */
+    text-align: center;    /* Centra el título dentro del modal */
+    font-size: 24px;       /* Tamaño de fuente grande para destacar el encabezado */
+}
+
+.modal-content iframe {
+    margin-top: 20px; /* Espacio superior para separar el iframe del contenido previo */
+    width: 100%;      /* Ancho completo para adaptarse al modal */
+    height: 500px;    /* Altura fija para visualizar el contenido del iframe */
+}
+
+.close {
+    position: absolute;       /* Posiciona el botón de cerrar de forma absoluta dentro del modal */
+    top: 15px;                /* Distancia desde el borde superior del modal */
+    right: 20px;              /* Distancia desde el borde derecho del modal */
+    font-size: 28px;          /* Tamaño de fuente grande para la visibilidad */
+    font-weight: bold;        /* Fuente en negrita para destacar el botón */
+    color: #333;              /* Color oscuro para el icono de cerrar */
+    cursor: pointer;          /* Cursor puntero para indicar que es interactivo */
+}
+
+.close:hover,
+.close:focus {
+    color: red;             /* Cambia el color a rojo al pasar el cursor o al enfocar */
+    text-decoration: none;  /* Elimina cualquier subrayado */
+    cursor: pointer;        /* Mantiene el cursor de puntero */
+}
+
+#print-pdf {
+    display: inline-block;       /* Muestra el botón en línea con otros elementos */
+    background-color: #4CAF50;     /* Fondo verde para el botón de imprimir PDF */
+    color: white;                /* Texto en blanco */
+    padding: 10px 20px;          /* Espacio interno para que sea fácil de pulsar */
+    font-size: 16px;             /* Tamaño de fuente adecuado para el botón */
+    border: none;                /* Sin borde para un diseño limpio */
+    border-radius: 5px;          /* Bordes redondeados */
+    cursor: pointer;             /* Cursor puntero para indicar interactividad */
+    margin-top: 15px;            /* Espacio superior para separar del contenido adyacente */
+    text-align: center;          /* Centra el texto dentro del botón */
+    display: flex;               /* Utiliza flexbox para alinear su contenido */
+    align-items: center;         /* Alinea verticalmente los elementos dentro del botón */
+    justify-content: center;     /* Centra horizontalmente el contenido del botón */
+}
+
+#print-pdf i {
+    margin-right: 8px; /* Separa el icono del texto a la derecha */
+}
+
+#print-pdf:hover {
+    background-color: #45a049; /* Cambia el fondo a un verde más oscuro al hacer hover */
+}
+
+/* =================== FILTROS =================== */
+.filtros {
+    display: flex;                /* Usa flexbox para organizar los filtros */
+    flex-direction: column;       /* Organiza los filtros en una columna */
+    align-items: center;          /* Centra los filtros horizontalmente */
+    margin-bottom: 20px;          /* Espacio inferior para separar de otros elementos */
+}
+
+/* Barra de búsqueda */
+#filtro-busqueda {
+    width: 50%;                /* Define el ancho de la barra de búsqueda */
+    padding: 10px;             /* Espacio interno para comodidad al escribir */
+    font-size: 16px;           /* Tamaño de fuente legible */
+    border: 2px solid #ccc;    /* Borde gris que delimita la barra */
+    border-radius: 20px;       /* Bordes muy redondeados para un estilo suave */
+    margin-bottom: 20px;       /* Espacio inferior para separarlo de otros filtros */
+}
+
+/* Contenedor para los filtros */
+.filtros-grupo {
+    display: flex;              /* Utiliza flexbox para distribuir los bloques de filtros */
+    justify-content: center;    /* Centra los bloques horizontalmente */
+    gap: 30px;                  /* Aumenta el espacio entre cada filtro */
+    width: 100%;                /* Ocupa el ancho completo disponible */
+    max-width: 1000px;          /* Limita el ancho máximo para mantener una buena legibilidad */
+    margin-bottom: 20px;        /* Separa el grupo de filtros de otros elementos inferiores */
+}
+
+/* Cada bloque de filtro se separa un poco */
+.filtros-grupo > div {
+    margin-bottom: 15px; /* Añade espacio inferior entre bloques individuales de filtros */
+}
+
+/* Labels y selects */
+.filtros label {
+    display: block;           /* Muestra la etiqueta en bloque para ocupar toda la línea */
+    margin-bottom: 5px;       /* Pequeño espacio inferior para separar la etiqueta del campo */
+    font-size: 14px;          /* Tamaño de fuente adecuado para la etiqueta */
+    font-weight: bold;        /* Texto en negrita para enfatizar la etiqueta */
+}
+
+.filtros select {
+    width: 100%;               /* Ocupa el ancho completo del contenedor del select */
+    padding: 10px;             /* Espacio interno para facilitar la interacción */
+    font-size: 14px;           /* Tamaño de fuente para el texto dentro del select */
+    border: 1px solid #ddd;    /* Borde ligero y discreto */
+    border-radius: 5px;        /* Bordes redondeados */
+    outline: none;             /* Elimina el contorno predeterminado al enfocar */
+    transition: border-color 0.3s ease; /* Suaviza la transición al cambiar el color del borde */
+}
+
+.filtros select:focus,
+#filtro-busqueda:focus {
+    border-color: #007bff; /* Cambia el color del borde a azul al enfocar el campo */
+}
+
+/* Responsividad de filtros en pantallas pequeñas */
+@media (max-width: 768px) {
+    .filtros select,
+    #filtro-busqueda {
+        width: 90%; /* Amplía el ancho al 90% para mejorar la usabilidad en dispositivos pequeños */
+    }
+    .filtros-grupo {
+        flex-direction: column; /* Organiza los filtros en columna para pantallas reducidas */
+        gap: 10px;              /* Reduce el espacio entre filtros para aprovechar mejor el espacio */
+    }
+}
+
+/* Iconos de los filtros */
+.filter-icon {
+    margin-right: 5px;  /* Separa el icono del texto a la derecha */
+    color: #007bff;     /* Color azul para los iconos, consistente con el tema */
+    font-size: 16px;    /* Tamaño de fuente adecuado para los iconos */
+}

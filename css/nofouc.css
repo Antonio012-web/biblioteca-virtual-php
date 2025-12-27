@@ -1,0 +1,10 @@
+/* nofouc.css */
+html.nofouc body {
+    visibility: hidden; 
+    /* 
+       También puedes usar: opacity: 0;
+       y luego hacer un transition en el body 
+       para que aparezca de forma más suave.
+    */
+  }
+  

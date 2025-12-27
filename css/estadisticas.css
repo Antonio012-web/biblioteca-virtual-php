@@ -1,0 +1,312 @@
+/* General Body Styling */
+body { /* Estilos generales para el cuerpo de la página */
+    font-family: Arial, sans-serif; /* Define la tipografía principal */
+    background-color: #f9f9f9; /* Color de fondo claro para el body */
+    margin: 0; /* Elimina los márgenes por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+}
+
+/* Contenedor principal */
+.container { /* Contenedor que agrupa el contenido principal */
+    width: 90%;  /* Ocupa el 90% del ancho de la ventana */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espaciado interno para dar respiro al contenido */
+    background-color: #fff; /* Fondo blanco para resaltar el contenido */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para crear profundidad */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 30px; /* Espacio superior para separar del borde superior de la página */
+    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho total */
+}
+
+/* Encabezado */
+header { /* Estilos para la cabecera del sitio */
+    text-align: center; /* Centra el contenido del encabezado */
+    margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
+}
+
+header h2 { /* Título principal dentro del encabezado */
+    font-size: 2.5rem; /* Tamaño de fuente grande para destacar el título */
+    margin: 0; /* Elimina márgenes para un alineamiento preciso */
+    color: #333; /* Color de texto oscuro para buena legibilidad */
+}
+
+/* Tarjetas */
+.cards { /* Contenedor que organiza las tarjetas en formato grid */
+    display: grid; /* Utiliza CSS Grid para distribuir las tarjetas */
+    grid-template-columns: repeat(5, 1fr); /* Crea 5 columnas de igual tamaño */
+    gap: 15px; /* Espacio uniforme entre filas y columnas */
+    margin-bottom: 20px; /* Espacio inferior para separar de otros bloques */
+}
+
+.card { /* Cada tarjeta individual */
+    color: white; /* Color de texto blanco dentro de la tarjeta */
+    padding: 20px; /* Espaciado interno para el contenido */
+    border-radius: 10px; /* Bordes redondeados en la tarjeta */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    display: flex; /* Usa flexbox para organizar el contenido interno */
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centra horizontalmente los elementos */
+    text-align: center; /* Centra el texto en la tarjeta */
+    transition: transform 0.2s; /* Transición suave para el efecto hover */
+}
+
+.card:hover { /* Efecto al pasar el cursor sobre la tarjeta */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la tarjeta */
+}
+
+.card-content { /* Contenedor para el contenido interno de la tarjeta */
+    display: flex; /* Usa flexbox para alinear elementos */
+    flex-direction: column; /* Organiza en columna */
+    align-items: center; /* Centra horizontalmente los elementos */
+}
+
+.card-content h3 { /* Título secundario dentro de la tarjeta */
+    font-size: 1rem; /* Tamaño de fuente moderado para el subtítulo */
+    margin: 0 0 10px 0; /* Margen inferior para separar del siguiente elemento */
+}
+
+.card-content p { /* Párrafo de contenido en la tarjeta */
+    font-size: 1.2rem; /* Tamaño de fuente ligeramente mayor para destacar */
+    margin: 0; /* Elimina márgenes para consistencia */
+}
+
+.card i { /* Estilos para íconos dentro de la tarjeta */
+    font-size: 2.5rem; /* Tamaño grande para resaltar el ícono */
+    margin-bottom: 10px; /* Espacio inferior para separar el ícono del texto */
+}
+
+/* Colores específicos para cada tipo de tarjeta */
+.card.total-users { background-color: #007bff; } /* Tarjeta de usuarios: fondo azul */
+.card.total-books { background-color: #28a745; } /* Tarjeta de libros: fondo verde */
+.card.total-reading-time { background-color: #ffc107; } /* Tarjeta de tiempo de lectura: fondo amarillo */
+.card.most-read-books { background-color: #6f42c1; } /* Tarjeta de libros más leídos: fondo púrpura */
+.card.least-read-books { background-color: #dc3545; } /* Tarjeta de libros menos leídos: fondo rojo */
+
+.card.total-reading-time {
+    color: #000000; /* Para la tarjeta de tiempo de lectura, el texto es negro */
+}
+
+/* Filtros */
+.filters { /* Contenedor para los elementos de filtrado */
+    display: flex; /* Organiza los filtros en línea */
+    justify-content: space-between; /* Distribuye el espacio entre ellos */
+    flex-wrap: wrap; /* Permite que se ajusten a varias líneas en dispositivos pequeños */
+    margin-bottom: 20px; /* Espacio inferior para separar de otros contenidos */
+    align-items: center; /* Alinea verticalmente los filtros */
+}
+
+.filter-item { /* Cada elemento individual de filtro */
+    margin-bottom: 10px; /* Espacio inferior para separar elementos */
+    display: flex; /* Usa flexbox para alinear la etiqueta y el campo */
+    align-items: center; /* Centra verticalmente los elementos dentro del filtro */
+}
+
+/* Reducir tamaño de etiquetas y select/input en filtros */
+.filter-item label { /* Etiqueta asociada a cada filtro */
+    margin-right: 10px; /* Espacio a la derecha entre la etiqueta y el campo */
+    display: flex; /* Permite alinear el contenido de la etiqueta */
+    align-items: center; /* Centra verticalmente el texto */
+    font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido */
+}
+
+.filter-item select,
+.filter-item input { /* Campos de selección y entrada en filtros */
+    font-size: 0.9rem; /* Tamaño de fuente consistente con la etiqueta */
+    padding: 8px; /* Espaciado interno para comodidad en la escritura */
+    border: 1px solid #ccc; /* Borde sutil para definir el campo */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Botones */
+.btn { /* Estilos generales para los botones */
+    font-size: 14px; /* Tamaño de fuente para el texto del botón */
+    padding: 8px 15px; /* Espaciado interno (vertical y horizontal) */
+    width: 160px; /* Ancho fijo para los botones */
+    height: 40px; /* Alto fijo para mantener consistencia */
+    background-color: #024894; /* Fondo azul oscuro para el botón */
+    color: white; /* Texto en blanco */
+    cursor: pointer; /* Cursor pointer para indicar que es interactivo */
+    border: none; /* Sin borde para un diseño limpio */
+    border-radius: 5px; /* Bordes redondeados */
+}
+#printButton{
+    background-color: #28a745; /* Fondo verde para el botón de imprimir */
+}
+
+.btn:hover { /* Efecto al pasar el cursor sobre un botón */
+    background-color: #0056b3; /* Cambia a un azul más oscuro */
+}
+
+.btn:disabled { /* Estilos para botones deshabilitados */
+    background-color: #ccc; /* Fondo gris que indica inactividad */
+    cursor: not-allowed; /* Cursor que indica que la acción no es permitida */
+}
+
+/* Contenedor para agrupar los botones */
+.button-group { /* Agrupa botones de acción en línea */
+    display: flex; /* Usa flexbox para organizarlos */
+    gap: 10px; /* Espacio uniforme entre botones */
+}
+
+/* Estadísticas */
+.stats { /* Contenedor para la sección de estadísticas */
+    margin-top: 20px; /* Espacio superior para separar de otros bloques */
+    display: flex; /* Organiza las secciones de estadísticas en línea */
+    justify-content: space-between; /* Distribuye el espacio entre las secciones */
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+    flex-wrap: wrap; /* Permite que se ajusten en varias líneas en pantallas pequeñas */
+}
+
+.stats-left { /* Sección de estadísticas principal */
+    width: 70%; /* Ocupa el 70% del ancho disponible */
+}
+
+.stats-right { /* Panel de estadísticas secundario */
+    width: 28%; /* Ocupa el 28% del ancho */
+    background-color: #f9f9f9; /* Fondo claro para diferenciar */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.stats canvas { /* Estilos para el canvas dentro de la sección de estadísticas */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 400px; /* Altura fija para el gráfico */
+}
+
+#user-books ul { /* Lista de libros del usuario */
+    list-style: none; /* Elimina viñetas predeterminadas */
+    padding: 0; /* Elimina padding interno */
+}
+
+#user-books li { /* Cada elemento de la lista de libros */
+    background-color: #f1f1f1; /* Fondo claro para cada ítem */
+    margin-bottom: 5px; /* Espaciado inferior entre ítems */
+    padding: 10px; /* Espaciado interno para comodidad */
+    border-radius: 5px; /* Bordes redondeados */
+    display: flex; /* Organiza el contenido en línea */
+    justify-content: space-between; /* Distribuye el contenido en ambos extremos */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+#user-books li span { /* Texto destacado dentro de cada ítem */
+    font-weight: bold; /* Negrita para resaltar */
+}
+
+/* Paginación */
+.pagination { /* Contenedor de los controles de paginación */
+    display: flex; /* Organiza los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin-top: 20px; /* Espacio superior para separar de otros bloques */
+}
+
+.page-button { /* Estilos para cada botón de paginación */
+    padding: 10px; /* Espaciado interno */
+    margin: 0 5px; /* Margen horizontal entre botones */
+    border: none; /* Sin borde */
+    background-color: #007bff; /* Fondo azul para los botones */
+    color: white; /* Texto en blanco */
+    cursor: pointer; /* Cursor pointer para indicar interactividad */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave para cambios de color */
+}
+
+.page-button.active { /* Botón de página activo */
+    background-color: #0056b3; /* Fondo azul más oscuro para indicar selección */
+}
+
+.page-button:hover:not(.active) { /* Efecto hover en botones que no están activos */
+    background-color: #0056b3; /* Fondo azul más oscuro al pasar el cursor */
+}
+
+/* Efecto Pulse */
+.grow { /* Elemento que aplicará un efecto de crecimiento */
+    display: inline-block; /* Permite que el elemento se escale sin romper el flujo de texto */
+    transition: transform 0.3s ease-in-out; /* Transición suave para el efecto de escala */
+}
+
+.grow:hover { /* Al pasar el cursor, se activa el efecto */
+    transform: scale(1.1); /* Escala el elemento al 110% de su tamaño original */
+}
+
+/* Media Queries para diseño responsivo */
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .container { /* Ajustes para el contenedor en pantallas pequeñas */
+        width: 95%; /* Aumenta el ancho disponible */
+        margin-top: 10px; /* Reduce el margen superior */
+        padding: 10px; /* Reduce el padding interno */
+    }
+
+    .cards { /* Ajustes para la cuadrícula de tarjetas en móviles */
+        grid-template-columns: repeat(2, 1fr); /* Muestra 2 columnas en lugar de 5 */
+        gap: 10px; /* Reduce el espacio entre tarjetas */
+    }
+
+    .filters { /* Ajusta la disposición de los filtros en móviles */
+        flex-direction: column; /* Organiza los filtros en columna */
+        align-items: flex-start; /* Alinea los filtros a la izquierda */
+    }
+
+    .stats { /* Ajusta la sección de estadísticas en móviles */
+        flex-direction: column; /* Organiza las estadísticas en columna */
+    }
+
+    .stats-left,
+    .stats-right { /* Cada sección de estadísticas ocupa todo el ancho */
+        width: 100%;
+        margin-bottom: 20px; /* Espacio inferior para separar secciones */
+    }
+
+    .filter-item { /* Ajusta cada filtro para ocupar todo el ancho en móviles */
+        width: 100%;
+        justify-content: space-between; /* Distribuye el contenido del filtro */
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container { /* Ajustes para el contenedor en tabletas */
+        width: 90%;
+        margin-top: 20px; /* Margen superior moderado */
+    }
+
+    header h2 { /* Título en tabletas */
+        font-size: 2rem; /* Tamaño de fuente algo reducido */
+    }
+
+    .cards { /* Mantiene la cuadrícula de tarjetas para tabletas */
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+    }
+
+    .stats-left,
+    .stats-right { /* Secciones de estadísticas ocupan el 100% en tabletas */
+        width: 100%;
+    }
+}
+
+/* Pantallas grandes (escritorios) */
+@media (min-width: 1025px) {
+    .container { /* Ajustes para el contenedor en pantallas grandes */
+        width: 90%;
+        margin-top: 30px; /* Margen superior para separar del borde superior */
+    }
+
+    header h2 { /* Título principal en escritorio */
+        font-size: 2.5rem; /* Tamaño de fuente grande */
+    }
+
+    .cards { /* Cuadrícula de tarjetas para escritorio */
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+    }
+
+    .stats-left { /* Sección izquierda de estadísticas */
+        width: 70%;
+    }
+
+    .stats-right { /* Sección derecha de estadísticas */
+        width: 28%;
+    }
+}

@@ -1,0 +1,627 @@
+/* Establece la tipografía, color de fondo y elimina márgenes/padding por defecto */
+body {
+    font-family: Arial, sans-serif; /* Fuente principal para el documento */
+    background-color: #f9f9f9; /* Color de fondo claro */
+    margin: 0; /* Quita el margen predeterminado */
+    padding: 0; /* Quita el padding predeterminado */
+}
+
+/* Contenedor principal con ancho, centrado y estilos visuales */
+.container {
+    width: 80%; /* Ancho relativo al viewport */
+    margin: 0 auto; /* Centra horizontalmente el contenedor */
+    padding: 20px; /* Espacio interno para el contenido */
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 30px; /* Separación desde el elemento superior */
+    position: relative; /* Posicionamiento relativo para elementos internos */
+    box-sizing: border-box;  /* Incluye padding y borde en el ancho total */
+}
+
+/* Encabezado de la página */
+header {
+    text-align: center; /* Centra el contenido del encabezado */
+    margin-bottom: 20px; /* Espacio inferior para separar del siguiente bloque */
+}
+
+/* Estilo para el título del encabezado */
+header h2 {
+    font-size: 2.5rem; /* Tamaño de fuente destacado */
+    margin: 0; /* Quita márgenes para mayor control */
+    color: #333; /* Color oscuro para buen contraste */
+}
+
+/* Barra superior con elementos distribuidos y alineados */
+.top-bar {
+    display: flex; /* Uso de Flexbox para distribución */
+    justify-content: space-between; /* Distribuye elementos al extremo */
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-bottom: 20px; /* Espacio inferior */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a varias líneas si es necesario */
+}
+
+/* Estilo para el recuadro de total de registros */
+.total-registros {
+    background-color: #024894; /* Fondo azul intenso */
+    color: white; /* Texto en blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 1.1rem; /* Tamaño de fuente ligeramente aumentado */
+    display: flex; /* Uso de Flexbox para alinear su contenido */
+    align-items: center; /* Centra verticalmente los elementos dentro */
+    margin-bottom: 10px; /* Separación inferior */
+    width: auto; /* Ancho se ajusta al contenido */
+    max-width: 100%; /* No excede el ancho del contenedor padre */
+}
+
+.total-registros i {
+    margin-right: 10px; /* Espacio a la derecha del ícono */
+}
+
+/* Área de filtros con disposición flexible */
+.filtros {
+    display: flex; /* Usa Flexbox para organizar filtros */
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-wrap: wrap; /* Permite múltiples líneas si es necesario */
+    gap: 10px; /* Espacio uniforme entre filtros */
+}
+
+.filtros label {
+    margin-right: 10px; /* Espacio a la derecha de la etiqueta */
+    font-size: 1rem; /* Tamaño estándar para la etiqueta */
+    color: #333; /* Color de texto oscuro */
+}
+
+.filtros select {
+    padding: 5px 10px; /* Espaciado interno en el select */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris claro */
+}
+
+/* Barra de búsqueda centrada y responsiva */
+.search-bar {
+    display: flex; /* Flexbox para centrar */
+    justify-content: center; /* Centrado horizontal */
+    margin-bottom: 20px; /* Separación inferior */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
+}
+
+#searchInput {
+    display: block; /* Se muestra en bloque */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    max-width: 500px; /* Ancho máximo para mantener legibilidad */
+    padding: 10px; /* Espaciado interno para comodidad al escribir */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 20px; /* Bordes muy redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+/* Contenedor de acciones en la tabla */
+.table-actions {
+    display: flex; /* Flexbox para distribuir botones */
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    margin-bottom: 10px; /* Espacio inferior */
+    flex-wrap: wrap; /* Permite que se ajusten en varias líneas si es necesario */
+    gap: 10px; /* Espacio uniforme entre botones */
+}
+
+/* Estilos generales para los botones de acción */
+.table-actions .btn {
+    background-color: #024894; /* Fondo azul para el botón */
+    color: white; /* Texto en blanco */
+    padding: 10px 15px; /* Espaciado interno adecuado */
+    border: none; /* Sin borde para un look limpio */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor pointer para indicar interactividad */
+}
+
+.table-actions .btn:hover {
+    background-color: #0056b3; /* Cambia a un azul más oscuro al pasar el mouse */
+}
+
+/* Contenedor que permite scroll horizontal en tablas */
+.table-container {
+    overflow-x: auto; /* Activa el desplazamiento horizontal si es necesario */
+}
+
+.table-container table {
+    width: 100%; /* Tabla ocupa el 100% del contenedor */
+    border-collapse: collapse; /* Elimina espacio entre celdas */
+    margin: 20px 0; /* Márgenes verticales para separación */
+    table-layout: fixed; /* Fija el ancho de las columnas */
+}
+
+/* Estilos para celdas y encabezados de la tabla */
+.reservas-table th, .reservas-table td {
+    border: 1px solid #ddd; /* Borde gris claro en celdas */
+    padding: 8px; /* Espaciado interno en celdas */
+    text-align: left; /* Alinea el texto a la izquierda */
+    white-space: nowrap; /* Evita el salto de línea */
+    overflow: hidden; /* Oculta contenido desbordado */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos para texto largo */
+    font-size: 0.9rem; /* Tamaño de fuente ligeramente menor */
+}
+
+.reservas-table th {
+    background-color: #f8f8f8; /* Fondo claro para encabezados */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centra el texto en los encabezados */
+}
+
+.reservas-table td {
+    background-color: #fff; /* Fondo blanco en las celdas */
+    text-align: center; /* Centra el contenido en las celdas */
+}
+
+.reservas-table tr:hover {
+    background-color: #f1f1f1; /* Cambia el fondo al pasar el mouse sobre la fila */
+}
+
+/* Limita la anchura de contenido largo en celdas con clase "truncate" */
+.reservas-table .truncate {
+    max-width: 150px; /* Máximo ancho para contenido truncado */
+}
+
+/* Botones dentro de la tabla */
+.reservas-table .btn {
+    padding: 5px 10px;  /* Espaciado interno reducido */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Indica interactividad */
+    margin: 2px; /* Pequeño margen entre botones */
+    font-size: 0.8rem; /* Fuente más pequeña para botones */
+    transition: background-color 0.3s; /* Transición suave para cambios de color */
+    display: inline-flex; /* Uso de flex para alinear contenido en línea */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones para color y transformación */
+}
+
+/* Contenedor para la paginación usando lista */
+.pagination-container {
+    display: flex; /* Flexbox para centrar la paginación */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    margin-top: 20px; /* Separación superior */
+    margin-bottom: -10px; /* Ajuste de margen inferior */
+}
+
+/* Estructura de paginación con elementos <ul> y <li> */
+.pagination {
+    display: flex; /* Organiza los elementos en línea */
+    gap: 8px; /* Espacio entre elementos */
+    list-style: none; /* Elimina los puntos de lista */
+    padding: 0; /* Sin padding */
+    margin: 0; /* Sin margen */
+}
+
+.pagination li {
+    list-style: none; /* Sin estilo de lista */
+}
+
+.pagination li a {
+    display: inline-block; /* Permite definir dimensiones fijas */
+    min-width: 36px; /* Ancho mínimo para cada "burbuja" */
+    height: 36px; /* Altura fija para la burbuja */
+    line-height: 36px; /* Alinea verticalmente el texto */
+    text-align: center; /* Centra el número en la burbuja */
+    border-radius: 50%; /* Hace la burbuja circular */
+    background-color: #ccc; /* Color de fondo gris para la burbuja */
+    color: #333; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios en color */
+}
+
+.pagination li a:hover {
+    background-color: #024894; /* Fondo azul al pasar el mouse */
+    color: #fff; /* Texto en blanco al pasar el mouse */
+}
+
+.pagination li a.active {
+    background-color: #017bff; /* Fondo azul intenso para la página activa */
+    color: #fff; /* Texto en blanco para la página activa */
+}
+
+.pagination li a.disabled {
+    opacity: 0.5; /* Baja opacidad para indicar deshabilitación */
+    cursor: not-allowed; /* Cursor que indica inactividad */
+}
+
+/* Pie de página con estilo sutil */
+footer {
+    text-align: center; /* Centrado del texto */
+    padding: 10px 0; /* Espaciado vertical */
+    margin-top: 20px; /* Separación superior */
+    border-top: 1px solid #ddd; /* Línea superior para separar el pie */
+    color: #777; /* Color gris para el texto */
+    font-size: 0.9rem; /* Tamaño de fuente pequeño */
+}
+
+/* ------------------ Modal ------------------ */
+.modal {
+    display: none; /* Oculto por defecto */
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* Posición fija en la ventana */
+    z-index: 1000; /* Asegura que se muestre por encima de otros elementos */
+    left: 0; /* Posicionado al inicio horizontal */
+    top: 0; /* Posicionado al inicio vertical */
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+    overflow: auto; /* Permite scroll si el contenido excede */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para resaltar el modal */
+}
+
+.modal-content{
+    background-color: #fefefe; /* Fondo blanco para el contenido del modal */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #888; /* Borde gris */
+    width: 40%; /* Ancho relativo del modal */
+    max-width: 600px; /* Ancho máximo definido */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra para dar profundidad */
+    position: fixed; /* Posición absoluta para centrar */
+    top: 40%; /* Centrado vertical en la ventana */
+    left: 50%; /* Centrado horizontal en la ventana */
+    transform: translate(-50%, -50%); /* Ajusta el centro del modal */
+}
+
+/* Centra el título dentro del modal */
+.modalTitle {
+    text-align: center; /* Texto centrado */
+}
+
+/* Botón de submit centrado */
+button[type="submit"] {
+    display: block;       /* Se comporta como bloque */
+    margin: 0 auto;       /* Centrado horizontal */
+}
+
+/* Ajuste responsive del modal para pantallas pequeñas */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 80% !important;   /* Ancho del modal ajustado al 80% */
+        max-width: none;        /* Elimina el límite máximo */
+        left: 50%;
+        transform: translate(-50%, -50%); /* Mantiene el centrado */
+    }
+    
+    /* Permite que los campos se apilen verticalmente */
+    .form-row {
+        flex-direction: column; /* Campos en columna */
+    }
+}
+
+/* Estilo para los botones de cerrar en el modal */
+.close,
+.close-ver-modal {
+    color: #999; /* Color gris para el botón de cerrar */
+    position: absolute; /* Posiciona de forma absoluta dentro del modal */
+    right: 20px; /* Alineado a la derecha */
+    top: 15px; /* Alineado en la parte superior */
+    font-size: 28px; /* Tamaño de fuente grande */
+    font-weight: bold; /* Negrita para resaltar */
+    cursor: pointer; /* Cursor pointer para indicar que es clickeable */
+}
+
+.close:hover,
+.close:focus,
+.close-ver-modal:hover,
+.close-ver-modal:focus {
+    color: #333; /* Cambia a un gris oscuro al pasar el mouse o al enfocar */
+    text-decoration: none; /* Sin subrayado */
+}
+
+/* Título principal del modal con estilo destacado */
+.modal-title {
+    margin: 0; /* Sin margen superior */
+    margin-bottom: 15px; /* Espacio inferior para separar del contenido */
+    text-align: center; /* Título centrado */
+    font-size: 1.8rem; /* Tamaño de fuente grande */
+    color: #333; /* Color oscuro para buena legibilidad */
+    font-weight: bold; /* Negrita para destacar */
+    display: flex; /* Uso de Flexbox para alinear elementos */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    gap: 10px; /* Espacio entre elementos internos, si existieran */
+}
+
+/* Estilos para los párrafos dentro de la sección de detalles */
+.ver-detalles p {
+    margin-bottom: 10px; /* Espacio inferior entre párrafos */
+    font-size: 1rem; /* Tamaño de fuente legible */
+    color: #555; /* Color de texto intermedio */
+    display: flex; /* Uso de Flexbox para alinear contenido */
+    align-items: center; /* Centrado vertical de los elementos */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.ver-detalles p i {
+    margin-right: 10px; /* Espacio a la derecha del ícono */
+    color: #007bff; /* Color azul para destacar el ícono */
+    font-size: 1.2rem; /* Tamaño de fuente para el ícono */
+    min-width: 20px; /* Ancho mínimo para mantener consistencia */
+    text-align: center; /* Centrado del ícono */
+}
+
+.ver-detalles p strong {
+    margin-right: 5px; /* Espacio a la derecha del texto en negrita */
+    color: #333; /* Color oscuro para el texto */
+}
+
+/* Botón "Ver" con colores específicos */
+.btn-view {
+    background-color: #3D3BF3; /* Fondo azul vibrante */
+    color: #fff; /* Texto blanco */
+}
+.btn-view:hover {
+    background-color: #22177A; /* Fondo se oscurece al pasar el mouse */
+}
+
+/* Efecto "Pulse" para animar elementos al pasar el mouse */
+.grow {
+    display: inline-block; /* Se comporta como un bloque en línea */
+    transition: transform 0.3s ease-in-out;  /* Transición suave para la transformación */
+}
+.grow:hover {
+    transform: scale(1.1); /* Aumenta de tamaño al pasar el mouse */
+}
+
+/* ------------------ Formularios dentro del Modal ------------------ */
+.form-group {
+    margin-bottom: 15px; /* Espacio inferior entre grupos del formulario */
+}
+
+.form-group label {
+    display: block; /* Hace que la etiqueta ocupe toda la línea */
+    margin-bottom: 5px; /* Pequeño espacio entre la etiqueta y el campo */
+    color: #333; /* Color oscuro para buena legibilidad */
+    font-weight: 500; /* Peso de fuente medio para resaltar la etiqueta */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px; /* Espaciado interno para comodidad */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+/* Agrupa campos en filas con espacio entre ellos */
+.form-row {
+    display: flex; /* Organiza los campos en línea */
+    gap: 20px; /* Espacio entre los campos */
+    margin-bottom: 15px; /* Separación inferior para la fila */
+}
+
+.form-row .form-group.half {
+    flex: 1; /* Cada grupo ocupa la mitad del espacio disponible */
+}
+
+/* Custom Dropdown: contenedor y estilos para lista desplegable */
+.custom-dropdown {
+    position: relative; /* Permite posicionar la lista relativa al contenedor */
+    width: 150px; /* Ancho fijo para el dropdown */
+    cursor: pointer; /* Cursor pointer para indicar interactividad */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco */
+    padding: 8px; /* Espaciado interno */
+}
+
+.dropdown-selected {
+    padding: 5px; /* Padding para el elemento seleccionado */
+}
+
+.dropdown-list {
+    display: none; /* Oculta la lista por defecto */
+    position: absolute; /* Posiciona la lista relativa al dropdown */
+    top: 100%; /* Posiciona justo debajo del contenedor */
+    left: 0; /* Alineación a la izquierda */
+    width: 100%; /* Ancho igual al contenedor */
+    max-height: 150px; /* Altura máxima con scroll si excede */
+    overflow-y: auto; /* Activa scroll vertical si es necesario */
+    border: 1px solid #ccc; /* Borde para definir la lista */
+    border-top: none; /* Quita el borde superior para unir con el contenedor */
+    border-radius: 0 0 5px 5px; /* Bordes redondeados en la parte inferior */
+    background-color: #fff; /* Fondo blanco para la lista */
+    z-index: 10; /* Asegura que se muestre sobre otros elementos */
+}
+
+.dropdown-item {
+    padding: 8px; /* Espaciado interno para cada ítem */
+    border-bottom: 1px solid #eee; /* Línea divisoria entre ítems */
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1; /* Cambia el fondo al pasar el mouse */
+}
+
+/* Formularios en el Modal (redefinición para asegurar consistencia) */
+.form-group {
+    margin-bottom: 15px; /* Espaciado inferior entre campos */
+}
+
+.form-row {
+    display: flex; /* Organiza los campos en línea */
+    gap: 20px; /* Espacio entre cada campo */
+    margin-bottom: 15px; /* Margen inferior para separar filas */
+}
+
+.form-group.half {
+    flex: 1; /* Ocupa la mitad del espacio disponible */
+}
+
+/* Botón de envío en formularios */
+button[type="submit"] {
+    background-color: #007bff; /* Fondo azul para el botón */
+    color: white; /* Texto en blanco */
+    padding: 10px 15px; /* Espaciado interno para un clic cómodo */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor pointer para indicar interactividad */
+    margin-top: 10px; /* Separación superior */
+    width: auto; /* Ancho ajustado al contenido */
+}
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Fondo se oscurece al pasar el mouse */
+}
+
+/* Responsive: Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Contenedor ocupa mayor ancho en móviles */
+        margin-top: 10px; /* Reduce margen superior */
+        padding: 10px; /* Reduce padding para optimizar espacio */
+    }
+    .top-bar {
+        flex-direction: column; /* Coloca elementos en columna */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+    .total-registros {
+        width: auto; /* Ancho ajustable */
+        margin-bottom: 10px; /* Margen inferior para separación */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+    .search-bar {
+        flex-direction: column; /* Organiza la búsqueda en columna */
+        margin-bottom: 15px; /* Espacio inferior */
+        width: 100%; /* Ocupa todo el ancho */
+    }
+    #searchInput {
+        max-width: 100%; /* Permite que el input se expanda en móviles */
+        margin-bottom: 10px; /* Espaciado inferior */
+    }
+    .table-actions {
+        flex-direction: column; /* Botones en columna */
+        align-items: flex-start; /* Alineación a la izquierda */
+        gap: 5px; /* Menor espacio entre botones */
+    }
+    .reservas-table {
+        border: 0; /* Sin borde en la tabla para simplificar el diseño */
+    }
+    .reservas-table thead {
+        display: none; /* Oculta encabezados en vista móvil */
+    }
+    .reservas-table tr {
+        display: block; /* Cada fila se muestra como bloque */
+        margin-bottom: 15px; /* Separación entre filas */
+        border: 1px solid #ddd; /* Borde para delimitar la fila */
+        border-radius: 10px; /* Bordes redondeados en filas */
+        padding: 10px; /* Espaciado interno */
+        background-color: #fff; /* Fondo blanco */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        text-align: left; /* Texto alineado a la izquierda */
+    }
+    .reservas-table tr:hover {
+        background-color: #fff; /* Sin cambio de fondo al pasar el mouse */
+    }
+    .reservas-table td {
+        display: flex; /* Organiza el contenido de la celda en línea */
+        justify-content: flex-start; /* Alinea el contenido al inicio */
+        padding: 8px 0; /* Espaciado vertical */
+        border: none; /* Sin borde en la celda */
+        white-space: normal; /* Permite salto de línea */
+    }
+    .reservas-table td::before {
+        content: attr(data-label); /* Inserta una etiqueta descriptiva */
+        font-weight: bold; /* Negrita para la etiqueta */
+        margin-right: 10px; /* Espaciado a la derecha */
+        flex-shrink: 0; /* Evita reducción de ancho */
+        text-align: left; /* Alineación a la izquierda */
+    }
+    .reservas-table td:last-child {
+        padding-bottom: 0; /* Elimina padding inferior en la última celda */
+    }
+    .reservas-table .btn {
+        display: inline-flex; /* Asegura que el botón se muestre correctamente */
+        width: auto; /* Ancho ajustable al contenido */
+        text-align: center; /* Texto centrado en el botón */
+        margin: 5px 2px; /* Margen reducido para optimizar espacio */
+    }
+    .action-buttons {
+        flex-direction: row; /* Botones dispuestos en fila */
+        flex-wrap: wrap; /* Permite ajuste a múltiples líneas */
+        justify-content: center; /* Centrado horizontal */
+        gap: 5px; /* Espacio reducido entre botones */
+    }
+    .action-buttons .btn {
+        width: auto; /* Ancho ajustable */
+        margin: 5px 2px; /* Margen reducido */
+    }
+}
+
+/* Responsive: Ajustes para tabletas */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 90%; /* Contenedor ocupa 90% en tabletas */
+        margin-top: 20px; /* Margen superior moderado */
+    }
+    header h2 {
+        font-size: 2rem; /* Título ligeramente reducido */
+    }
+    .total-registros {
+        font-size: 1rem; /* Tamaño de fuente ajustado */
+        padding: 8px 15px; /* Padding moderado */
+    }
+    .filtros label {
+        font-size: 0.9rem; /* Etiqueta con fuente un poco menor */
+    }
+    .reservas-table th, .reservas-table td {
+        padding: 7px; /* Padding reducido en celdas */
+        font-size: 0.85rem; /* Fuente ligeramente menor */
+    }
+    .reservas-table tr, .reservas-table td {
+        text-align: left; /* Alineación de texto a la izquierda */
+    }
+    .action-buttons {
+        flex-direction: row; /* Botones en fila */
+        flex-wrap: wrap; /* Permite ajuste si es necesario */
+        justify-content: center; /* Centrado horizontal */
+        gap: 5px; /* Espacio entre botones */
+    }
+    .action-buttons .btn {
+        width: auto; /* Ancho ajustable al contenido */
+        margin: 5px 2px; /* Margen reducido */
+    }
+
+    /* Formularios dentro del Modal: estilo adaptado para tabletas */
+    .form-group {
+        margin-bottom: 15px; /* Espacio entre campos */
+    }
+    .form-group label {
+        display: block; /* Etiqueta en bloque */
+        margin-bottom: 5px; /* Espacio entre etiqueta y campo */
+        color: #333; /* Color oscuro para legibilidad */
+        font-weight: 500; /* Peso medio de la fuente */
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%; /* Campo ocupa todo el ancho disponible */
+        padding: 10px; /* Espaciado interno */
+        border: 1px solid #ddd; /* Borde gris claro */
+        border-radius: 5px; /* Bordes redondeados */
+        box-sizing: border-box; /* Incluye padding y borde en el ancho */
+    }
+    .form-row {
+        display: flex; /* Organiza campos en fila */
+        gap: 20px; /* Espacio entre campos */
+        margin-bottom: 15px; /* Separación inferior */
+    }
+    .form-row .form-group.half {
+        flex: 1; /* Cada campo ocupa la mitad del espacio */
+    }
+}
+
+/* Efecto para SweetAlert: se asegura mayor prioridad en la capa visual */
+.swal2-container {
+    z-index: 10000 !important; /* Forzar que se muestre sobre otros elementos */
+}
